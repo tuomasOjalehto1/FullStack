@@ -1,0 +1,25 @@
+/* Vapaasti voi muokata */
+body {
+    padding-top: 50px;
+}
+
+.navbar {
+    margin-bottom: 20px; /* Lisätään väliä navbarrin alapuolelle */
+}
+.custom-logo {
+    max-width: 50px; 
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        margin-bottom: 10px;
+    }
+}
+.header {
+    background-color: #dcdcdc;
+    height: 100px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
