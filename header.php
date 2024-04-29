@@ -10,7 +10,6 @@
     <link rel="icon" href="logo.png" type="image/png">
     <link href="headerstyle.css" rel="stylesheet">
 </head>
-
 <body>
     <header class="header bg-light text-center p-3">
         <div class="container">
@@ -18,14 +17,11 @@
                 <div class="col-md-4">
                     <a class="navbar-brand" href="index.php"><img src="logo.png" alt="logo" class="custom-logo"></a>
                 </div>
-
-                <div class="col-md-11">
+                <div class="col-md-8">
                     <nav class="navbar navbar-expand-md">
-
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                                                
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
@@ -48,7 +44,6 @@
                                         <li><a class="dropdown-item" href="kirjaudu_asukas.php">Asukas</a></li>
                                         <li><a class="dropdown-item" href="kirjaudu_isannoitsija.php">Isännöitsijä</a></li>
                                         <li><a class="dropdown-item" href="kirjaudu_tyontekija.php">Työntekijä</a></li>
-
                                     </ul>
                                 </li>
                             </ul>
@@ -58,6 +53,5 @@
             </div>
         </div>
     </header>
-    
 </body>
 </html>
