@@ -1,3 +1,8 @@
+<?php
+// Tietokantayhteyden muodostaminen
+require_once 'Utils/connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,41 +20,53 @@
     <div class="container mt-5">
         <p>Lomakkeen kautta tehtyjä huoltopyyntöjä käsitellään arkisin toimistomme aukioloaikana. Mikäli asiasi vaatii välitöntä reagointia (esimerkiksi vesivahinko tai oven avauspyyntö) soita asiakaspalveluumme. </p>
         <br>    
-        <form action="/###.php"> <!--FORM 1-->
-          <label for="valintamenu" class="form-label"><h4>Valitse listalta vikailmoitustyyppi:</h4></label>
+        <form action="/###.php"> <!--FORM 1 VALINTAMENU huoltotyypille-->
+          <label for="valintamenu" class="form-label"><h4>Valitse listalta vikailmoituksen tyyppi:</h4></label>
             <select class="form-select" id="valintamenu" name="valintamenu">
                 <option>Kiinteistö</option>
                 <option>Yleiset tilat</option>
-                <option>Piha-alue</option> <!-- Tää näytti kivalta lomakkeella, en tiedä tarvitseeko valintaa liittää sen kummemmin mihinkään jatkon kannalta??-->
+                <option>Piha-alue</option> 
             </select>
         </form>
     </div>
     <div class="container mt-3">
-        <h4>Ilmoituksen tekijän tiedot:</h4>
-        <form action="/###.php"> <!--FORMIN 2, TOIMIIKO JOS KAKSI FORMIA YHDISTETÄÄNKÖ-->
-          <div class="row">
-            <div class="col">
-                <label for="nimi">Nimi:</label>
-              <input type="text" class="form-control" placeholder="Nimesi:" name="nimi" required>
-            </div>
-            <div class="col">
-                <label for="comment">Sähköposti:</label>
-              <input type="text" class="form-control" placeholder="Syötä sähköposti" name="sposti" required>
-            </div>
+      <h4>Ilmoituksen jättäjän tiedot:</h4>
+        <form action="/###.php"> <!--FORM 2 Ilmoituksen jättäjän tiedot-->
+          
+              <div class="row">
+                  <div class="col">
+                      <label for="etunimi" class="form-label">Etunimi:</label>
+                      <input type="text" class="form-control" id="etunimi" placeholder="Etunimi" name="etunimi" required>                         
+                  </div>
+                  <div class="col">
+                      <label for="sukunimi" class="form-label">Sukunimi:</label>
+                      <input type="text" class="form-control" id="sukunimi" placeholder="Sukunimi" name="sukunimi" required>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <label for="puhelin" class="form-label">Puhelinnumero:</label>
+                      <input type="text" class="form-control" id="puhelin" placeholder="Puhelinnumero" name="puhelin" required>
+                  </div>
+                  <div class="col">
+                      <label for="sposti" class="form-label">Sähköpostiosoite:</label>
+                      <input type="text" class="form-control" id="sposti" placeholder="Sähköpostiosoite" name="sposti">
+                  </div>
+                    
             <div class="container mt-3">
                 <h4>Kuvaile asia tai ongelma:</h4>
                     <label for="osoite">Osoite, mitä ilmoitus koskee:</label>
                     <input type="text" class="form-control" placeholder="Osoite:" name="osoite" required>
-        <form action="/###.php"> <!--FORM 3-->
+        
             <div class="mb-3 mt-3">
             <label for="comment">Kuvaus:</label>
-            <textarea class="form-control" rows="6" id="kuvaus" placeholder="Lyhyt kuvaus viasta tai huoltotarpeesta:"name="text"></textarea>
+                <textarea class="form-control" rows="6" id="kuvaus" placeholder="Lyhyt kuvaus viasta tai huoltotarpeesta:"name="text"></textarea>
             </div>
-            <button type="laheta" class="btn btn-primary">Lähetä</button>
+                <button type="laheta" class="btn btn-primary">Lähetä</button>
         </form>
               </div>
           </div>
-      </div>
+    </div>
 </body>
 </html>
 
