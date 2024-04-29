@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $stmt->execute();
 
-        $message = "<p class='alert alert-success text-center'>Viesti lähetetty onnistuneesti!</p>";
+        $message = "<p class='alert alert-success text-center'>Viesti lähetetty onnistuneesti! Olemme sinuun pian yhteydessä.</p>";
     } catch(PDOException $e) {
         $message = "<p class='alert alert-danger text-center'>Tietokantaan lisääminen epäonnistui: " . $e->getMessage() . "</p>";
     }
