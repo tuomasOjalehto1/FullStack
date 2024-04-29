@@ -1,11 +1,38 @@
 <?php
 require_once 'Utils/connect.php';
 
+// Tarkistetaan, onko lomake lähetetty
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Otetaan vastaan lomakkeen tiedot ja suodatetaan ne
+    $etunimi = filter_input(INPUT_POST, 'etunimi', FILTER_SANITIZE_STRING);
+    $sukunimi = filter_input(INPUT_POST, 'sukunimi', FILTER_SANITIZE_STRING);
+    $puhelin = filter_input(INPUT_POST, 'puhelin', FILTER_SANITIZE_STRING);
+    $yritys = filter_input(INPUT_POST, 'yritys', FILTER_SANITIZE_STRING);
+    $sposti = filter_input(INPUT_POST, 'sposti', FILTER_SANITIZE_EMAIL);
+    $viesti = filter_input(INPUT_POST, 'viesti', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+    // Valmistellaan SQL-lause tietojen tallentamista varten
+    try {
+        $stmt = $yhteys->prepare("INSERT INTO otayhteyttataulu (etunimi, sukunimi, puhelin, yritys, sposti, viesti) VALUES (:etunimi, :sukunimi, :puhelin, :yritys, :sposti, :viesti)");
+        $stmt->bindParam(':etunimi', $etunimi);
+        $stmt->bindParam(':sukunimi', $sukunimi);
+        $stmt->bindParam(':puhelin', $puhelin);
+        $stmt->bindParam(':yritys', $yritys);
+        $stmt->bindParam(':sposti', $sposti);
+        $stmt->bindParam(':viesti', $viesti);
+        
+        $stmt->execute();
+
+        $message = "<p class='alert alert-success text-center'>Viesti lähetetty onnistuneesti!</p>";
+    } catch(PDOException $e) {
+        $message = "<p class='alert alert-danger text-center'>Tietokantaan lisääminen epäonnistui: " . $e->getMessage() . "</p>";
+    }
+    }
+
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
   <title>Ota yhteyttä</title>
     <meta charset="utf-8">
@@ -13,14 +40,18 @@ require_once 'Utils/connect.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <div class="p-5 bg-primary text-white text-center">
+    <!--Tässä header-->
+<?php require_once 'header.php'; ?>
+    <div class="p-4 text-black text-center">
         <h1>Ota yhteyttä</h1>
     </div>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-sm-12 col-md-10 padding">
             <p>Täytä alla oleva lomake, niin olemme sinuun yhteydessä. Keskustellaan lisää siitä, miten voimme olla avuksi.</p>
-              <form action="XXX.php">
+                <!-- onkohan tämä oikein -->
+                <form action="otayhteytta.php" method="post"> 
+
                 <div class="mb-3 mt-3">
                     <div class="row">
                         <div class="col">
@@ -56,8 +87,12 @@ require_once 'Utils/connect.php';
                     </div>
                 </div>               
                 <button type="submit" class="btn btn-primary">Lähetä</button>
-              </form> 
-              
+
+                </form> 
+            <br>
+            <!-- Viestin sijoitus täällä -->
+            <?php if (!empty($message)) echo $message; ?>
+            <br>
             </div>
           </div>
       </div>
@@ -65,4 +100,6 @@ require_once 'Utils/connect.php';
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>
+
+<?php require_once 'footer.php'; ?>
 
