@@ -22,7 +22,7 @@
                     <h5 class="mb-3">Linkit</h5>
                     <ul class="list-unstyled text-center">
                         <li class="my-1"><a href="index.php" class="link-dark text-decoration-none">Etusivu</a></li> 
-                        <li class="my-1"><a href="yhteysteidot.php" class="link-dark text-decoration-none">Yhteystiedot</a></li> 
+                        <li class="my-1"><a href="yhteystiedot.php" class="link-dark text-decoration-none">Yhteystiedot</a></li> 
                         <li class="my-1"><a href="otayhteytta.php" class="link-dark text-decoration-none">Ota yhteyttä</a></li> 
                         <li class="my-1"><a href="referenssit.php" class="link-dark text-decoration-none">Referenssit</a></li> 
                         <li class="my-1"><a href="kirjaudu_asukas.php" class="link-dark text-decoration-none">Kirjaudu asukkaana</a></li>
