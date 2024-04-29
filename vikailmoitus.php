@@ -1,3 +1,9 @@
+<?php
+require_once 'Utils/connect.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
