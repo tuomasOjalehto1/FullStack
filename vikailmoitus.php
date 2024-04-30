@@ -15,7 +15,7 @@
     <div class="container mt-5">
         <p>Lomakkeen kautta tehtyjä huoltopyyntöjä käsitellään arkisin toimistomme aukioloaikana. Mikäli asiasi vaatii välitöntä reagointia (esimerkiksi vesivahinko tai oven avauspyyntö) soita asiakaspalveluumme. </p>
         <br>    
-        <form action="/###.php"> <!--FORM 1 VALINTAMENU huoltotyypille-->
+        <form action="/###.php" method="POST"> <!--FORM 1 VALINTAMENU huoltotyypille-->
           <label for="valintamenu" class="form-label"><h4>Valitse listalta vikailmoituksen tyyppi:</h4></label>
             <select class="form-select" id="valintamenu" name="valintamenu">
                 <option>Kiinteistö</option>
@@ -26,7 +26,7 @@
     </div>
     <div class="container mt-3">
       <h4>Ilmoituksen jättäjän tiedot:</h4>
-        <form action="/###.php"> <!--FORM 2 Ilmoituksen jättäjän tiedot-->
+        <form action="/###.php" method="POST"> <!--FORM 2 Ilmoituksen jättäjän tiedot-->
           
               <div class="row">
                   <div class="col">
@@ -55,9 +55,9 @@
         
             <div class="mb-3 mt-3">
             <label for="comment">Kuvaus:</label>
-                <textarea class="form-control" rows="6" id="kuvaus" placeholder="Lyhyt kuvaus viasta tai huoltotarpeesta:"name="text"></textarea>
+                <textarea class="form-control" rows="6" id="kuvaus" placeholder="Lyhyt kuvaus viasta tai huoltotarpeesta:"name="kuvaus"></textarea>
             </div>
-                <button type="laheta" class="btn btn-primary">Lähetä</button>
+                <button name="talleta" type="submit" class="btn btn-primary">Lähetä</button>
         </form>
               </div>
           </div>
