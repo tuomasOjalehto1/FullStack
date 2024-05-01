@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
   <title>Vikailmoitus</title>
     <meta charset="utf-8">
@@ -47,7 +47,11 @@
                       <label for="sposti" class="form-label">Sähköpostiosoite:</label>
                       <input type="text" class="form-control" id="sposti" placeholder="Sähköpostiosoite" name="sposti">
                   </div>
-                    
+                    <!--Tähän tarvitaan radioboxit minkä valinta tallentuu tietokantaan numeroilla 1-3 (INT datatyyppinä)
+                    1. Huolto tai korjaus
+                    2. Siivous
+                    3. Ulkoalueiden hoito
+                    -->
             <div class="container mt-3">
                 <h4>Kuvaile asia tai ongelma:</h4>
                     <label for="osoite">Osoite, mitä ilmoitus koskee:</label>

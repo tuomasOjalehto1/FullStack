@@ -18,7 +18,7 @@ if(isset($_POST['delete_id'])){
         // Suorita poistokysely
         $stmt->execute();
 
-        // Ohjaa takaisin pääsivulle onnistuneen poiston jälkeen
+        // Ohjaa takaisin pääsivulle onnistuneen poiston jälkeen ei näy käyttäjälle
         header("location: ../index.php");
         exit();
     } catch (PDOException $e) {
@@ -27,7 +27,7 @@ if(isset($_POST['delete_id'])){
         exit();
     }
 } else {
-    // Jos delete_id-parametria ei ole asetettu, ohjaa takaisin pääsivulle
+    // Jos id ei 404 ohjaa takaisin
     header("location: ../tyontekija.php");
     exit();
 }

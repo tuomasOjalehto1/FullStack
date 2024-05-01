@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
   <title>Isännöitsijä</title>
     <meta charset="utf-8">
