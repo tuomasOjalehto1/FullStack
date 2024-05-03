@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 03.05.2024 klo 09:28
+-- Generation Time: 03.05.2024 klo 09:40
 -- Palvelimen versio: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -53,7 +53,8 @@ INSERT INTO `asiakastaulu` (`id`, `etunimi`, `sukunimi`, `puhelin`, `sposti`, `o
 CREATE TABLE `kayttaja_ja_salasana` (
   `id` int(11) NOT NULL,
   `kayttajatunnus` text NOT NULL,
-  `salasana` text NOT NULL
+  `salasana` text NOT NULL,
+  `rooli` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
