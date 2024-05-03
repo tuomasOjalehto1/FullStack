@@ -17,7 +17,9 @@ if(isset($_POST['submit'])){
         $salasana = $_POST['salasana'];
     
         // Haetaan käyttäjä tietokannasta käyttäjätunnuksen perusteella
-        $kirjaudu = $yhteys->prepare("SELECT * FROM kayttaja_ja_salasana WHERE kayttajatunnus = '$kayttajatunnus'");
+        $kirjaudu = $yhteys->prepare("SELECT * FROM kayttaja_ja_salasana WHERE kayttajatunnus = :kayttajatunnus");
+        $kirjaudu->execute([':kayttajatunnus' => $kayttajatunnus]);
+
         $kirjaudu->execute([':kayttajatunnus' => $kayttajatunnus]);
   
         $data = $kirjaudu->fetch(PDO::FETCH_ASSOC);
