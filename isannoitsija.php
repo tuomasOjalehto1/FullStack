@@ -1,10 +1,12 @@
 <?php
 require_once 'Utils/connect.php';
 
+
 // Hae kaikki tiedot tehtavataulu-taulusta
 $sql = "SELECT * FROM tehtavataulu";
 $stmt = $yhteys->query($sql);
 ?>
+
 <!--Tässä header-->
 <?php require_once 'header.php'; ?>
 
@@ -47,8 +49,7 @@ $stmt = $yhteys->query($sql);
     <table class="table">
       <thead>
         <tr>
-          <th>Etunimi</th>
-          <th>Sukunimi</th>
+          <th>Ilmoittajan nimi</th>
           <th>Osoite</th>
           <th>Huoltotyyppi</th>
           <th>Kuvaus</th>
@@ -62,10 +63,9 @@ $stmt = $yhteys->query($sql);
         if ($stmt->rowCount() > 0) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
-                echo "<td>" . $row["etunimi"] . "</td>";
-                echo "<td>" . $row["sukunimi"] . "</td>";
+                echo "<td>" . $row["etunimi"] . " " . $row["sukunimi"] ."</td>";
                 echo "<td>" . $row["osoite"] . "</td>";
-                # echo "<td>" . $row["ilmoittajanid"] . "</td>"; TULEE toisesta taulusta
+                
 
                 // Muutetaan huoltopyynnontyyppi numerosta tekstiksi
                 $huoltotyyppi = "";
@@ -86,6 +86,22 @@ $stmt = $yhteys->query($sql);
 
                 echo "<td>" . $huoltotyyppi . "</td>";
                 echo "<td>" . $row["kuvaus"] . "</td>";
+
+                // Tehdään valikkonappi työntekijän valinnalle
+                echo "<td>";
+                //TYÖNTEKIJÄVALINTA ON VIELÄ TOIMINTANA KESKEN, mutta esimerkiksi valitse_tyontekija.php 
+                echo "<form method='post' action='Utils/valitse_tyontekija.php'>";
+                echo "<input type='hidden' name='tehtava_id' value='" . $row['id'] . "'>";
+                echo "<select class='form-select' id='valintamenu' name='valintamenu'>";
+                echo "<option value='1'>TYÖNTEKIJÄ1</option>";
+                echo "<option value='2'>TYÖNTEKIJÄ2</option>"; 
+                echo "</select>";
+                echo "<br>";
+                echo "<input type='submit' value='Valitse'>";
+                echo "</form>";
+                echo "</td>";
+                echo "</tr>";
+
                 
             }
         } else {
