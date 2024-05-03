@@ -15,18 +15,18 @@
     <div class="container mt-5">
         <p>Lomakkeen kautta tehtyjä huoltopyyntöjä käsitellään arkisin toimistomme aukioloaikana. Mikäli asiasi vaatii välitöntä reagointia (esimerkiksi vesivahinko tai oven avauspyyntö) soita asiakaspalveluumme. </p>
         <br>    
-        <form action="/###.php" method="POST"> <!--FORM 1 VALINTAMENU huoltotyypille-->
-          <label for="valintamenu" class="form-label"><h4>Valitse listalta vikailmoituksen tyyppi:</h4></label>
+        <!-- <form action="/###.php" method="POST"> <!--FORM 1 VALINTAMENU huoltotyypille-->
+          <!-- <label for="valintamenu" class="form-label"><h4>Valitse listalta vikailmoituksen tyyppi:</h4></label>
             <select class="form-select" id="valintamenu" name="valintamenu">
                 <option>Kiinteistö</option>
                 <option>Yleiset tilat</option>
                 <option>Piha-alue</option> 
-            </select>
-        </form>
+            </select> -->
+        <!-- </form> --> -->
     </div>
     <div class="container mt-3">
       <h4>Ilmoituksen jättäjän tiedot:</h4>
-        <form action="/###.php" method="POST"> <!--FORM 2 Ilmoituksen jättäjän tiedot-->
+        <form action="Utils\tallennaVikailmoitus.php" method="POST"> <!--FORM 2 Ilmoituksen jättäjän tiedot-->
           
               <div class="row">
                   <div class="col">
