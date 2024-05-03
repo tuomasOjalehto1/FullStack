@@ -6,42 +6,45 @@ require_once 'Utils/connect.php';
 
 if(isset($_SESSION['kayttajatunnus'])){
     header("location: index.php");
-  }
-  
-  if(isset($_POST['submit'])){
-    if($_POST['kayttajatunnus'] == '' OR $_POST['salasana'] == ''){
-      echo '<script>alert("Tietoja puuttuu!");</script>';
-    }else{
-      $kayttajatunnus = $_POST['kayttajatunnus'];
-      $salasana = $_POST['salasana'];
-  
-      // Haetaan käyttäjä tietokannasta käyttäjätunnuksen perusteella
-      $kirjaudu = $yhteys->prepare("SELECT * FROM kayttaja_ja_salasana WHERE kayttajatunnus = :kayttajatunnus");
-      $kirjaudu->execute([$kayttajatunnus]);
-  
-      $data = $kirjaudu->fetch(PDO::FETCH_ASSOC);
-  
-      // Tarkistetaan löytyykö käyttäjää
-      if($kirjaudu->rowCount() > 0){
-        // Tarkistetaan salasana
-        if(password_verify($salasana, $data['salasana'])){
-            // Tarkistetaan rooli
-            if($data['rooli'] == 1){
-                // Kirjautuminen onnistui ja rooli on 1, tallennetaan käyttäjäsessio ja ohjataan etusivulle
-                $_SESSION['kayttajatunnus'] = $data['kayttajatunnus'];
-                header("location: asukas.php");
-                echo "Kirjautunut";
-        }else{
-          echo '<script>alert("Käyttäjätunnus tai salasana on väärin!");</script>';
-        }
-      }else{
-        echo '<script>alert("Käyttäjätunnus tai salasana on väärin!");</script>';
-      }
-    }
-  }
+    exit; // Lisää tämä, jotta koodi ei jatka suorittamista
 }
   
-  ?>
+if(isset($_POST['submit'])){
+    if($_POST['kayttajatunnus'] == '' OR $_POST['salasana'] == ''){
+        echo '<script>alert("Tietoja puuttuu!");</script>';
+    }else{
+        $kayttajatunnus = $_POST['kayttajatunnus'];
+        $salasana = $_POST['salasana'];
+    
+        // Haetaan käyttäjä tietokannasta käyttäjätunnuksen perusteella
+        $kirjaudu = $yhteys->prepare("SELECT * FROM kayttaja_ja_salasana WHERE kayttajatunnus = '$kayttajatunnus'");
+        $kirjaudu->execute([$kayttajatunnus]);
+  
+        $data = $kirjaudu->fetch(PDO::FETCH_ASSOC);
+  
+        // Tarkistetaan löytyykö käyttäjää
+        if($kirjaudu->rowCount() > 0){
+            // Tarkistetaan salasana
+            if(password_verify($salasana, $data['salasana'])){
+                // Tarkistetaan rooli
+                if($data['rooli'] == 1){
+                    // Kirjautuminen onnistui ja rooli on 1, tallennetaan käyttäjäsessio ja ohjataan etusivulle
+                    $_SESSION['kayttajatunnus'] = $data['kayttajatunnus'];
+                    header("location: asukas.php");
+                    echo "Kirjautunut";
+                }else{
+                    echo '<script>alert("Käyttäjätunnus tai salasana on väärin!");</script>';
+                }
+            }else{
+                echo '<script>alert("Käyttäjätunnus tai salasana on väärin!");</script>';
+            }
+        }else{
+            echo '<script>alert("Käyttäjätunnus tai salasana on väärin!");</script>';
+        }
+    }
+}
+?>
+
 
 <?php require_once 'header.php'; ?>
 
