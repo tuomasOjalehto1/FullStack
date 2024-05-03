@@ -1,3 +1,11 @@
+<?php
+require_once 'Utils/connect.php';
+
+// Hae kaikki tiedot tehtavataulu-taulusta
+$sql = "SELECT * FROM tehtavataulu";
+$stmt = $yhteys->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -31,6 +39,70 @@
             </div>
         </div>
     </div>
+  <!-- Näytä tiedot taulukkomuodossa -->
+  <div class="container mt-5">
+    <h2>Kaikki tehtävät</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Ilmoittajan ID</th>
+          <th>Etunimi</th>
+          <th>Sukunimi</th>
+          <th>Osoite</th>
+          <th>Huoltotyyppi</th>
+          <th>Kuvaus</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        // Tarkistetaan onko hakutuloksia
+        if ($stmt->rowCount() > 0) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo "<tr>";
+                echo "<td>" . $row["ilmoittajanid"] . "</td>";
+                echo "<td>" . $row["etunimi"] . "</td>";
+                echo "<td>" . $row["sukunimi"] . "</td>";
+                echo "<td>" . $row["osoite"] . "</td>";
+
+                // Muutetaan huoltopyynnontyyppi numerosta tekstiksi
+                $huoltotyyppi = "";
+                switch ($row["huoltopyynnontyyppi"]) {
+                    case 1:
+                        $huoltotyyppi = "Huolto- tai korjaus";
+                        break;
+                    case 2:
+                        $huoltotyyppi = "Siivous";
+                        break;
+                    case 3:
+                        $huoltotyyppi = "Ulkoalueiden hoito";
+                        break;
+                    default:
+                        $huoltotyyppi = "Tuntematon tyyppi";
+                        break;
+                }
+
+                echo "<td>" . $huoltotyyppi . "</td>";
+                echo "<td>" . $row["kuvaus"] . "</td>";
+                
+                // Poistamis nappi
+                echo "<td>";
+                //Osoittaa oikeaan tiedostoon
+                echo "<form method='post' action='Utils/PoistaTehtava.php'>";
+                echo "<input type='hidden' name='delete_id' value='" . $row['id'] . "'>";
+                echo "<button type='submit' class='btn btn-danger'>Poista tehtävä</button>";
+                echo "</form>";
+                echo "</td>";
+
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='7'>Ei tehtäviä</td></tr>";
+        }
+        ?>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
 

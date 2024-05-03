@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 26.04.2024 klo 20:49
+-- Generation Time: 03.05.2024 klo 09:40
 -- Palvelimen versio: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -32,7 +32,29 @@ CREATE TABLE `asiakastaulu` (
   `etunimi` varchar(200) NOT NULL,
   `sukunimi` varchar(200) NOT NULL,
   `puhelin` varchar(200) NOT NULL,
+  `sposti` varchar(200) NOT NULL,
   `osoite` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Vedos taulusta `asiakastaulu`
+--
+
+INSERT INTO `asiakastaulu` (`id`, `etunimi`, `sukunimi`, `puhelin`, `sposti`, `osoite`) VALUES
+(1, 'testi1', 'testi1', 'testi1', 'testi1', 'testi1'),
+(11, 'testi2', 'testi2', 'testi2', 'testi2', 'testi2');
+
+-- --------------------------------------------------------
+
+--
+-- Rakenne taululle `kayttaja_ja_salasana`
+--
+
+CREATE TABLE `kayttaja_ja_salasana` (
+  `id` int(11) NOT NULL,
+  `kayttajatunnus` text NOT NULL,
+  `salasana` text NOT NULL,
+  `rooli` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -47,10 +69,18 @@ CREATE TABLE `tehtavataulu` (
   `huoltopyynnontyyppi` int(11) NOT NULL,
   `kuvaus` varchar(1000) NOT NULL,
   `ilmoittajanid` int(11) NOT NULL,
-  `etunimi` int(11) NOT NULL,
-  `sukunimi` int(11) NOT NULL,
-  `puhelin` int(11) NOT NULL
+  `etunimi` varchar(11) NOT NULL,
+  `sukunimi` varchar(11) NOT NULL,
+  `puhelin` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Vedos taulusta `tehtavataulu`
+--
+
+INSERT INTO `tehtavataulu` (`id`, `osoite`, `huoltopyynnontyyppi`, `kuvaus`, `ilmoittajanid`, `etunimi`, `sukunimi`, `puhelin`) VALUES
+(7, 'testi1', 1, 'testi1', 1, 'testi1', 'testi1', 'testi1'),
+(8, 'testi2', 2, 'testi2', 11, 'testi2', 'testi2', 'testi2');
 
 -- --------------------------------------------------------
 
@@ -78,6 +108,12 @@ ALTER TABLE `asiakastaulu`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `kayttaja_ja_salasana`
+--
+ALTER TABLE `kayttaja_ja_salasana`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tehtavataulu`
 --
 ALTER TABLE `tehtavataulu`
@@ -98,13 +134,19 @@ ALTER TABLE `tyontekijataulu`
 -- AUTO_INCREMENT for table `asiakastaulu`
 --
 ALTER TABLE `asiakastaulu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `kayttaja_ja_salasana`
+--
+ALTER TABLE `kayttaja_ja_salasana`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tehtavataulu`
 --
 ALTER TABLE `tehtavataulu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tyontekijataulu`
