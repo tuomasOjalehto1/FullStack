@@ -4,7 +4,8 @@ body {
 }
 
 .footer {
-    background-color: #dcdcdc;
+    background-color: #b2c7ff;
+    
 }
 
 a:hover {
@@ -27,5 +28,9 @@ a:hover {
         margin-top: 10px;
         margin-bottom: 10px;
     }
+}
+
+p {
+    font-size: small;
 }
 

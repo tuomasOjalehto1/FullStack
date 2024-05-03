@@ -5,6 +5,8 @@ require_once 'Utils/connect.php';
 $sql = "SELECT * FROM tehtavataulu";
 $stmt = $yhteys->query($sql);
 ?>
+<!--Tässä header-->
+<?php require_once 'header.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fi">
@@ -14,7 +16,7 @@ $stmt = $yhteys->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <div class="p-5 bg-primary text-white text-center"> <!--CSS joku koti taustakuva -->
@@ -95,4 +97,5 @@ $stmt = $yhteys->query($sql);
   </div>
 </body>
 </html>
+<?php require_once 'footer.php'; ?>
 

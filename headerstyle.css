@@ -5,6 +5,7 @@ body {
 
 .navbar {
     margin-bottom: 20px; /* Lisätään väliä navbarrin alapuolelle */
+    
 }
 .custom-logo {
     max-width: 50px; 
@@ -16,7 +17,7 @@ body {
     }
 }
 .header {
-    background-color: #dcdcdc;
+    background-color: #7fa1fd;
     height: 100px;
 }
 

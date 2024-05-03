@@ -11,7 +11,7 @@
     <link href="headerstyle.css" rel="stylesheet">
 </head>
 <body>
-    <header class="header bg-light text-center p-3">
+    <header class="header text-center p-3 fixed-top">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">

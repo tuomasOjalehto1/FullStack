@@ -5,6 +5,8 @@ require_once 'Utils/connect.php';
 $sql = "SELECT * FROM tehtavataulu";
 $stmt = $yhteys->query($sql);
 ?>
+<!-- Header -->
+<?php require_once 'header.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fi">
@@ -13,10 +15,10 @@ $stmt = $yhteys->query($sql);
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <?php require_once 'header.php'; ?>
+  
 
   <!-- Näytä tiedot taulukkomuodossa -->
   <div class="container mt-5">

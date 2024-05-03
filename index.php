@@ -1,7 +1,8 @@
 <?php
 require_once 'Utils/connect.php';
 ?>
-
+<!--Tässä header-->
+<?php require_once 'header.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fi">
@@ -10,10 +11,10 @@ require_once 'Utils/connect.php';
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
-<!--Tässä header-->
-<?php require_once 'header.php'; ?>
+
 
 
   <!-- Tekstikenttä perustiedoille -->

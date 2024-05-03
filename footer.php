@@ -8,17 +8,16 @@
     <link href="footerstyle.css" rel="stylesheet"> 
 </head>
 <body>
-    <footer class="footer bg-light text-center p-3">
+    <footer class="footer text-center p-3 fixed-bottom">
         <div class="container">
             <div class="row">
 
-                <div class="col-md-4">
-                    <h5 class="mb-3">Yritys</h5>
-                    <p class="my-1">Lyhyt kuvaus yrityksestä.</p>
-                    <p class="my-1">Y-tunnus</p>
+                <div class="col-md-6">
+                    <h5 class="mb-3">R. Autio Oy</h5>
+                    <p class="my-1">Y-tunnus: 0835677-3</p>
                 </div>
 
-                <div class="col-md-4">
+                <!--<div class="col-md-4">
                     <h5 class="mb-3">Linkit</h5>
                     <ul class="list-unstyled text-center">
                         <li class="my-1"><a href="index.php" class="link-dark text-decoration-none">Etusivu</a></li> 
@@ -29,20 +28,20 @@
                         <li class="my-1"><a href="kirjaudu_isannoitsija.php" class="link-dark text-decoration-none">Kirjaudu isännöitsijänä</a></li>
                         <li class="my-1"><a href="kirjaudu_tyontekija.php" class="link-dark text-decoration-none">Kirjaudu työntekijänä</a></li>
                     </ul>
-                </div>
+                </div>-->
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <h5 class="mb-3">Yhteystiedot</h5>
-                    <p class="my-1">Yrityksen nimi</p>
-                    <p class="my-1">Puhelinnumero</p>
-                    <p class="my-1">Katu, postinumero, Kaupunki</p>
+                    <p class="my-1">R. Autio Oy</p>
+                    <p class="my-1">Puhelinnumero: 010 1234 567</p>
+                    <p class="my-1">Pohjolankatu 23, 00100 Helsinki</p>
                 </div>
 
             </div>
         </div>
 
         <div class="container text-center">
-            <p>&copy; <?php echo date("Y"); ?> Yrityksen Nimi. Kaikki oikeudet pidätetään.</p>
+            <p>&copy; <?php echo date("Y"); ?> R. Autio Oy. Kaikki oikeudet pidätetään.</p>
         </div>
     </footer>
 </body>
