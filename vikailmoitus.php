@@ -47,17 +47,28 @@
                       <label for="sposti" class="form-label">Sähköpostiosoite:</label>
                       <input type="text" class="form-control" id="sposti" placeholder="Sähköpostiosoite" name="sposti">
                   </div>
-                    <!--Tähän tarvitaan radioboxit minkä valinta tallentuu tietokantaan numeroilla 1-3 (INT datatyyppinä)
-                    1. Huolto tai korjaus
-                    2. Siivous
-                    3. Ulkoalueiden hoito
-                    -->
-            <div class="container mt-3">
-                <h4>Kuvaile asia tai ongelma:</h4>
-                    <label for="osoite">Osoite, mitä ilmoitus koskee:</label>
-                    <input type="text" class="form-control" placeholder="Osoite:" name="osoite" required>
-        
-            <div class="mb-3 mt-3">
+
+                    <div class="mt-3">
+            <h4>Valitse huoltotyyppi:</h4>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="huoltotyyppi" id="huolto" value="1" required>
+                <label class="form-check-label" for="huolto">
+                    Huolto tai korjaus
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="huoltotyyppi" id="siivous" value="2">
+                <label class="form-check-label" for="siivous">
+                    Siivous
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="huoltotyyppi" id="ulkoalueet" value="3">
+                <label class="form-check-label" for="ulkoalueet">
+                    Ulkoalueiden hoito
+                </label>
+            </div>
+        </div>
             <label for="comment">Kuvaus:</label>
                 <textarea class="form-control" rows="6" id="kuvaus" placeholder="Lyhyt kuvaus viasta tai huoltotarpeesta:"name="kuvaus"></textarea>
             </div>
