@@ -19,10 +19,9 @@ if(isset($_POST['submit'])){
         // Haetaan käyttäjä tietokannasta käyttäjätunnuksen perusteella
         $kirjaudu = $yhteys->prepare("SELECT * FROM kayttaja_ja_salasana WHERE kayttajatunnus = :kayttajatunnus");
         $kirjaudu->execute([':kayttajatunnus' => $kayttajatunnus]);
-
-        $kirjaudu->execute([':kayttajatunnus' => $kayttajatunnus]);
   
         $data = $kirjaudu->fetch(PDO::FETCH_ASSOC);
+        
   
         // Tarkistetaan löytyykö käyttäjää
         if($kirjaudu->rowCount() > 0){
@@ -44,7 +43,10 @@ if(isset($_POST['submit'])){
             echo '<script>alert("Käyttäjätunnus tai salasana on väärin!");</script>';
         }
     }
+
 }
+
+
 ?>
 
 

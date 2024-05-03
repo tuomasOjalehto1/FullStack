@@ -57,6 +57,9 @@ CREATE TABLE `kayttaja_ja_salasana` (
   `rooli` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `kayttaja_ja_salasana` (`id`, `kayttajatunnus`, `salasana`, `rooli`) VALUES (1, 'testi@sposti.fi', 'testi', '1'),
+(2, 'testi2@sposti.fi', 'testi2', '2');
+
 -- --------------------------------------------------------
 
 --
