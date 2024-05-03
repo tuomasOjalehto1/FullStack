@@ -1,27 +1,30 @@
 /*vapaasti saa muokata*/
+
 body {
     overflow-x: hidden;
+    position: relative;
 }
 
 .footer {
     background-color: #b2c7ff;
-    position: fixed;
+    position: absolute;
     bottom: 0;
+    width: 100%;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-.footer-content img {
+/*.footer-content img {
     width: 25px;
     height: 25px;
     margin-right: 5px;
-}
+}*/
 
 .h5 {
-        margin-top: 50px;
-        margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 @media (max-width: 768px) { /* Tarkoittaa tablet-näyttöjä ja pienempiä */
@@ -34,4 +37,3 @@ a:hover {
 p {
     font-size: small;
 }
-
