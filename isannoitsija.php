@@ -39,19 +39,19 @@ $stmt = $yhteys->query($sql);
             </div>
         </div>
     </div>
-  <!-- Näytä tiedot taulukkomuodossa -->
+  <!-- Näytä tiedot taulukkomuodossa TÄMÄ VASTA Alulla SusannaN:llä-->
   <div class="container mt-5">
-    <h2>Kaikki tehtävät</h2>
+    <h2>Huoltotehtävä -lista</h2>
     <table class="table">
       <thead>
         <tr>
-          <th>Ilmoittajan ID</th>
           <th>Etunimi</th>
           <th>Sukunimi</th>
           <th>Osoite</th>
           <th>Huoltotyyppi</th>
           <th>Kuvaus</th>
-
+          <th>Työntekijä</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -60,10 +60,10 @@ $stmt = $yhteys->query($sql);
         if ($stmt->rowCount() > 0) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
-                echo "<td>" . $row["ilmoittajanid"] . "</td>";
                 echo "<td>" . $row["etunimi"] . "</td>";
                 echo "<td>" . $row["sukunimi"] . "</td>";
                 echo "<td>" . $row["osoite"] . "</td>";
+                # echo "<td>" . $row["ilmoittajanid"] . "</td>"; TULEE toisesta taulusta
 
                 // Muutetaan huoltopyynnontyyppi numerosta tekstiksi
                 $huoltotyyppi = "";
@@ -85,16 +85,6 @@ $stmt = $yhteys->query($sql);
                 echo "<td>" . $huoltotyyppi . "</td>";
                 echo "<td>" . $row["kuvaus"] . "</td>";
                 
-                // Poistamis nappi
-                echo "<td>";
-                //Osoittaa oikeaan tiedostoon
-                echo "<form method='post' action='Utils/PoistaTehtava.php'>";
-                echo "<input type='hidden' name='delete_id' value='" . $row['id'] . "'>";
-                echo "<button type='submit' class='btn btn-danger'>Poista tehtävä</button>";
-                echo "</form>";
-                echo "</td>";
-
-                echo "</tr>";
             }
         } else {
             echo "<tr><td colspan='7'>Ei tehtäviä</td></tr>";
