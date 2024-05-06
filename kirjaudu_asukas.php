@@ -70,7 +70,7 @@ if(isset($_POST['submit'])){
     <div class="container mt-5">
         <div class="row justify-content-center">
             <main class="form-signin w-50 m-auto">
-            <form method="POST" action="kirjaudu_asukas.php">
+            <form method="POST" action="asukas.php">
                 <div class="mb-3 row">
                     <div class="form-floating">
                         <input type="text" name="kayttajatunnus" class="form-control" id="floatingInput" placeholder="nimi@esimerkki.fi">
