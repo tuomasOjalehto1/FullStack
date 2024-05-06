@@ -5,6 +5,10 @@ require_once 'Utils/connect.php';
 // Hae kaikki tiedot tehtavataulu-taulusta
 $sql = "SELECT * FROM tehtavataulu";
 $stmt = $yhteys->query($sql);
+
+// Hae työntekijät tyontekijataulu -taulusta
+$sql_tyontekijat = "SELECT id, etunimi FROM tyontekijataulu"; 
+$stmt_tyontekijat = $yhteys->query($sql_tyontekijat);
 ?>
 
 <!--Tässä header-->
@@ -89,12 +93,12 @@ $stmt = $yhteys->query($sql);
 
                 // Tehdään valikkonappi työntekijän valinnalle
                 echo "<td>";
-                //TYÖNTEKIJÄVALINTA ON VIELÄ TOIMINTANA KESKEN, mutta esimerkiksi valitse_tyontekija.php 
+                //KESKEN, ensimmäiseen tehtävään löytää työntekijä vaihtoehdot ja toiseen tehtävään ei löydä 
                 echo "<form method='post' action='Utils/valitse_tyontekija.php'>";
-                echo "<input type='hidden' name='tehtava_id' value='" . $row['id'] . "'>";
                 echo "<select class='form-select' id='valintamenu' name='valintamenu'>";
-                echo "<option value='1'>TYÖNTEKIJÄ1</option>";
-                echo "<option value='2'>TYÖNTEKIJÄ2</option>"; 
+                while ($row_tyontekija = $stmt_tyontekijat->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<option value='" . $row_tyontekija['id'] . "'>" . $row_tyontekija['etunimi'] . " " . $row_tyontekija['sukunimi'] . "</option>";
+                }
                 echo "</select>";
                 echo "<br>";
                 echo "<input type='submit' value='Valitse'>";
