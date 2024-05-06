@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 03.05.2024 klo 09:40
+-- Generation Time: 06.05.2024 klo 08:52
 -- Palvelimen versio: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -57,8 +57,12 @@ CREATE TABLE `kayttaja_ja_salasana` (
   `rooli` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `kayttaja_ja_salasana` (`id`, `kayttajatunnus`, `salasana`, `rooli`) VALUES (1, 'testi@sposti.fi', 'testi', '1'),
-(2, 'testi2@sposti.fi', 'testi2', '2');
+--
+-- Vedos taulusta `kayttaja_ja_salasana`
+--
+
+INSERT INTO `kayttaja_ja_salasana` (`id`, `kayttajatunnus`, `salasana`, `rooli`) VALUES
+(1, 'testi1', 'testi1', 1);
 
 -- --------------------------------------------------------
 
@@ -167,7 +171,7 @@ ALTER TABLE `asiakastaulu`
 -- AUTO_INCREMENT for table `kayttaja_ja_salasana`
 --
 ALTER TABLE `kayttaja_ja_salasana`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tehtavataulu`
