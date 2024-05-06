@@ -36,15 +36,8 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="otayhteytta.php">Ota yhteyttä</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Kirjaudu
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="kirjaudu_asukas.php">Asukas</a></li>
-                                        <li><a class="dropdown-item" href="kirjaudu_isannoitsija.php">Isännöitsijä</a></li>
-                                        <li><a class="dropdown-item" href="kirjaudu_tyontekija.php">Työntekijä</a></li>
-                                    </ul>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="kirjautumissivu.php">Kirjaudu</a>
                                 </li>
                             </ul>
                         </div>
