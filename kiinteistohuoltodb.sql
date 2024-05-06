@@ -85,6 +85,23 @@ INSERT INTO `tehtavataulu` (`id`, `osoite`, `huoltopyynnontyyppi`, `kuvaus`, `il
 (7, 'testi1', 1, 'testi1', 1, 'testi1', 'testi1', 'testi1'),
 (8, 'testi2', 2, 'testi2', 11, 'testi2', 'testi2', 'testi2');
 
+
+-- --------------------------------------------------------
+
+--
+-- Rakenne taululle `otayhteyttataulu`
+--
+
+CREATE TABLE `otayhteyttataulu` (
+  `id` int(11) NOT NULL,
+  `etunimi` varchar(50) NOT NULL,
+  `sukunimi` varchar(50) NOT NULL,
+  `puhelin` varchar(20) NOT NULL,
+  `yritys` varchar(100) NOT NULL,
+  `sposti` varchar(100) NOT NULL,
+  `viesti` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- --------------------------------------------------------
 
 --
@@ -130,6 +147,13 @@ ALTER TABLE `tyontekijataulu`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `otayhteyttataulu`
+--
+ALTER TABLE `otayhteyttataulu`
+  ADD PRIMARY KEY (`id`);
+
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -156,6 +180,13 @@ ALTER TABLE `tehtavataulu`
 --
 ALTER TABLE `tyontekijataulu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `otayhteyttataulu`
+--
+ALTER TABLE `otayhteyttataulu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
 
 --
 -- Rajoitteet vedostauluille
