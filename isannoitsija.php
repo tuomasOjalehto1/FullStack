@@ -47,7 +47,7 @@ $stmt_tyontekijat = $yhteys->query($sql_tyontekijat);
             </div>
         </div>
     </div>
-  <!-- Näytä tiedot taulukkomuodossa TÄMÄ VASTA Alulla SusannaN:llä-->
+  <!-- Näytä tiedot taulukkomuodossa TÄMÄ kesken SusannaN:llä-->
   <div class="container mt-5">
     <h2>Huoltotehtävä -lista</h2>
     <table class="table">
@@ -70,7 +70,6 @@ $stmt_tyontekijat = $yhteys->query($sql_tyontekijat);
                 echo "<td>" . $row["etunimi"] . " " . $row["sukunimi"] ."</td>";
                 echo "<td>" . $row["osoite"] . "</td>";
                 
-
                 // Muutetaan huoltopyynnontyyppi numerosta tekstiksi
                 $huoltotyyppi = "";
                 switch ($row["huoltopyynnontyyppi"]) {
@@ -93,24 +92,26 @@ $stmt_tyontekijat = $yhteys->query($sql_tyontekijat);
 
                 // Tehdään valikkonappi työntekijän valinnalle
                 echo "<td>";
-                //KESKEN, ensimmäiseen tehtävään löytää työntekijä vaihtoehdot ja toiseen tehtävään ei löydä 
                 echo "<form method='post' action='Utils/valitse_tyontekija.php'>";
                 echo "<select class='form-select' id='valintamenu' name='valintamenu'>";
-                while ($row_tyontekija = $stmt_tyontekijat->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<option value='" . $row_tyontekija['id'] . "'>" . $row_tyontekija['etunimi'] . " " . $row_tyontekija['sukunimi'] . "</option>";
+
+                if ($stmt_tyontekijat->rowCount() > 0) {
+                    while ($row_tyontekija = $stmt_tyontekijat->fetch(PDO::FETCH_ASSOC)) {
+                        // Lisää työntekijän nimi ja aseta arvoksi työntekijän id
+                        echo "<option value='" . $row_tyontekija['id'] . "'>" . $row_tyontekija['etunimi'] . " " . $row_tyontekija['sukunimi'] . "</option>";
+                    }
                 }
                 echo "</select>";
                 echo "<br>";
                 echo "<input type='submit' value='Valitse'>";
                 echo "</form>";
                 echo "</td>";
-                echo "</tr>";
 
-                
             }
         } else {
             echo "<tr><td colspan='7'>Ei tehtäviä</td></tr>";
         }
+
         ?>
       </tbody>
     </table>
