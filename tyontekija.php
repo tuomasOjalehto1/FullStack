@@ -1,9 +1,24 @@
 <?php
+session_start();
+
+// Varmista, että istunto on asetettu ja näytä istunnon id
+if (isset($_SESSION["id"])) {
+    echo "Session ID: " . $_SESSION["id"];
+    echo $_SESSION["sposti"];
+} else {
+    echo "Session ID not set.";
+}
+
+
+
+$id = $_SESSION["id"];
+
 require_once 'Utils/connect.php';
 
-// Hae kaikki tiedot tehtavataulu-taulusta
-$sql = "SELECT * FROM tehtavataulu";
-$stmt = $yhteys->query($sql);
+// Hae kaikki tiedot joihin tallennettu tämän työntekijän id tehtavataulu-taulusta
+$sql = "SELECT * FROM tehtavataulu WHERE tyontekija_id = :tyontekija_id";
+$stmt = $yhteys->prepare($sql);
+$stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
 ?>
 <!-- Header -->
 <?php require_once 'header.php'; ?>

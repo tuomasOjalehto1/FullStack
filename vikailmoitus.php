@@ -73,7 +73,7 @@
         </div>
             <label for="comment">Kuvaus:</label>
                 <textarea class="form-control" rows="6" id="kuvaus" placeholder="Lyhyt kuvaus viasta tai huoltotarpeesta:"name="kuvaus"></textarea>
-            </div>
+            </div><br>
                 <button name="talleta" type="submit" class="btn btn-primary">Lähetä</button>
         </form>
               </div>

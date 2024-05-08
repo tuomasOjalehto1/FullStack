@@ -1,4 +1,17 @@
-<?php require_once 'header.php'; ?>
+<?php
+session_start();
+
+// Tarkista, onko käyttäjä kirjautunut sisään
+if (!isset($_SESSION['sposti'])) {
+    // Ohjaa kirjautumissivulle, jos käyttäjä ei ole kirjautunut
+    header("location: asukas.php");
+    exit;
+}
+
+$id = $_SESSION['id'];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

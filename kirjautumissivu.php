@@ -1,5 +1,7 @@
 
-<?php require_once 'header.php';
+<?php
+
+      require_once 'header.php';
       require 'Utils/connect.php';
 ?>
 
@@ -24,7 +26,7 @@
             <form method="POST" action="Utils/kirjautuminen.php">
                 <div class="mb-3 row">
                     <div class="form-floating">
-                        <input type="text" name="kayttajatunnus" class="form-control" id="floatingInput" placeholder="nimi@esimerkki.fi">
+                        <input type="text" name="sposti" class="form-control" id="floatingInput" placeholder="nimi@esimerkki.fi">
                         <label for="floatingInput">Käyttäjätunnus</label>
                     </div>
                 </div>
