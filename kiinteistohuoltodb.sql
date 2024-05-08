@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08.05.2024 klo 09:44
+-- Generation Time: 08.05.2024 klo 12:44
 -- Palvelimen versio: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -42,7 +42,8 @@ CREATE TABLE `asiakastaulu` (
 
 INSERT INTO `asiakastaulu` (`id`, `etunimi`, `sukunimi`, `puhelin`, `sposti`, `osoite`) VALUES
 (1, 'testi1', 'testi1', 'testi1', 'testi1', 'testi1'),
-(11, 'testi2', 'testi2', 'testi2', 'testi2', 'testi2');
+(11, 'testi2', 'testi2', 'testi2', 'testi2', 'testi2'),
+(13, 'testiasiakas1', 'testiasiakas1', 'testiasiakas1', 'testiasiakas1', 'testiasiakas1');
 
 -- --------------------------------------------------------
 
@@ -52,7 +53,7 @@ INSERT INTO `asiakastaulu` (`id`, `etunimi`, `sukunimi`, `puhelin`, `sposti`, `o
 
 CREATE TABLE `kayttaja_ja_salasana` (
   `id` int(11) NOT NULL,
-  `kayttajatunnus` text NOT NULL,
+  `sposti` text NOT NULL,
   `salasana` text NOT NULL,
   `rooli` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -61,8 +62,9 @@ CREATE TABLE `kayttaja_ja_salasana` (
 -- Vedos taulusta `kayttaja_ja_salasana`
 --
 
-INSERT INTO `kayttaja_ja_salasana` (`id`, `kayttajatunnus`, `salasana`, `rooli`) VALUES
-(1, 'testi1', 'testi1', 1);
+INSERT INTO `kayttaja_ja_salasana` (`id`, `sposti`, `salasana`, `rooli`) VALUES
+(1, 'testi1', 'testi1', 3),
+(4, 'testiasiakas1', 'testiasiakas1', 1);
 
 -- --------------------------------------------------------
 
@@ -94,16 +96,18 @@ CREATE TABLE `tehtavataulu` (
   `ilmoittajanid` int(11) NOT NULL,
   `etunimi` varchar(11) NOT NULL,
   `sukunimi` varchar(11) NOT NULL,
-  `puhelin` varchar(11) NOT NULL
+  `puhelin` varchar(11) NOT NULL,
+  `tyontekija_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vedos taulusta `tehtavataulu`
 --
 
-INSERT INTO `tehtavataulu` (`id`, `osoite`, `huoltopyynnontyyppi`, `kuvaus`, `ilmoittajanid`, `etunimi`, `sukunimi`, `puhelin`) VALUES
-(7, 'testi1', 1, 'testi1', 1, 'testi1', 'testi1', 'testi1'),
-(8, 'testi2', 2, 'testi2', 11, 'testi2', 'testi2', 'testi2');
+INSERT INTO `tehtavataulu` (`id`, `osoite`, `huoltopyynnontyyppi`, `kuvaus`, `ilmoittajanid`, `etunimi`, `sukunimi`, `puhelin`, `tyontekija_id`) VALUES
+(7, 'testi1', 1, 'testi1', 1, 'testi1', 'testi1', 'testi1', 1),
+(8, 'testi2', 2, 'testi2', 11, 'testi2', 'testi2', 'testi2', 0),
+(9, 'testi3', 2, 'testi3', 1, 'testi3', 'testi3', 'testi3', 1);
 
 -- --------------------------------------------------------
 
@@ -171,13 +175,13 @@ ALTER TABLE `tyontekijataulu`
 -- AUTO_INCREMENT for table `asiakastaulu`
 --
 ALTER TABLE `asiakastaulu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `kayttaja_ja_salasana`
 --
 ALTER TABLE `kayttaja_ja_salasana`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `otayhteyttataulu`
@@ -189,7 +193,7 @@ ALTER TABLE `otayhteyttataulu`
 -- AUTO_INCREMENT for table `tehtavataulu`
 --
 ALTER TABLE `tehtavataulu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tyontekijataulu`
