@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06.05.2024 klo 08:52
+-- Generation Time: 08.05.2024 klo 09:44
 -- Palvelimen versio: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -67,6 +67,22 @@ INSERT INTO `kayttaja_ja_salasana` (`id`, `kayttajatunnus`, `salasana`, `rooli`)
 -- --------------------------------------------------------
 
 --
+-- Rakenne taululle `otayhteyttataulu`
+--
+
+CREATE TABLE `otayhteyttataulu` (
+  `id` int(11) NOT NULL,
+  `etunimi` varchar(50) NOT NULL,
+  `sukunimi` varchar(50) NOT NULL,
+  `puhelin` varchar(20) NOT NULL,
+  `yritys` varchar(100) NOT NULL,
+  `sposti` varchar(100) NOT NULL,
+  `viesti` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Rakenne taululle `tehtavataulu`
 --
 
@@ -89,23 +105,6 @@ INSERT INTO `tehtavataulu` (`id`, `osoite`, `huoltopyynnontyyppi`, `kuvaus`, `il
 (7, 'testi1', 1, 'testi1', 1, 'testi1', 'testi1', 'testi1'),
 (8, 'testi2', 2, 'testi2', 11, 'testi2', 'testi2', 'testi2');
 
-
--- --------------------------------------------------------
-
---
--- Rakenne taululle `otayhteyttataulu`
---
-
-CREATE TABLE `otayhteyttataulu` (
-  `id` int(11) NOT NULL,
-  `etunimi` varchar(50) NOT NULL,
-  `sukunimi` varchar(50) NOT NULL,
-  `puhelin` varchar(20) NOT NULL,
-  `yritys` varchar(100) NOT NULL,
-  `sposti` varchar(100) NOT NULL,
-  `viesti` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -118,8 +117,16 @@ CREATE TABLE `tyontekijataulu` (
   `sukunimi` varchar(200) NOT NULL,
   `osoite` varchar(200) NOT NULL,
   `puhelin` varchar(200) NOT NULL,
-  `omatila` tinyint(1) NOT NULL
+  `omatila` tinyint(1) NOT NULL,
+  `sposti` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Vedos taulusta `tyontekijataulu`
+--
+
+INSERT INTO `tyontekijataulu` (`id`, `etunimi`, `sukunimi`, `osoite`, `puhelin`, `omatila`, `sposti`) VALUES
+(1, 'testi1', 'testi1', 'testi1', 'testi1', 1, 'testi1');
 
 --
 -- Indexes for dumped tables
@@ -138,6 +145,12 @@ ALTER TABLE `kayttaja_ja_salasana`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `otayhteyttataulu`
+--
+ALTER TABLE `otayhteyttataulu`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tehtavataulu`
 --
 ALTER TABLE `tehtavataulu`
@@ -149,13 +162,6 @@ ALTER TABLE `tehtavataulu`
 --
 ALTER TABLE `tyontekijataulu`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `otayhteyttataulu`
---
-ALTER TABLE `otayhteyttataulu`
-  ADD PRIMARY KEY (`id`);
-
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -174,6 +180,12 @@ ALTER TABLE `kayttaja_ja_salasana`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `otayhteyttataulu`
+--
+ALTER TABLE `otayhteyttataulu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `tehtavataulu`
 --
 ALTER TABLE `tehtavataulu`
@@ -183,14 +195,7 @@ ALTER TABLE `tehtavataulu`
 -- AUTO_INCREMENT for table `tyontekijataulu`
 --
 ALTER TABLE `tyontekijataulu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `otayhteyttataulu`
---
-ALTER TABLE `otayhteyttataulu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Rajoitteet vedostauluille

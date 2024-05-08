@@ -1,4 +1,17 @@
-<?php require_once 'header.php'; ?>
+<?php
+session_start();
+
+// Tarkista, onko käyttäjä kirjautunut sisään
+if (!isset($_SESSION['kayttajatunnus'])) {
+    // Ohjaa kirjautumissivulle, jos käyttäjä ei ole kirjautunut
+    header("location: kirjautuminen.php");
+    exit;
+}
+
+$id = $_SESSION['id'];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

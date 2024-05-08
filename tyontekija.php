@@ -1,8 +1,12 @@
 <?php
+session_start();
+
+$id = $_SESSION['id'];
+
 require_once 'Utils/connect.php';
 
 // Hae kaikki tiedot tehtavataulu-taulusta
-$sql = "SELECT * FROM tehtavataulu";
+$sql = "SELECT * FROM tehtavataulu WHERE tyontekija_id = {$_SESSION['id']}";
 $stmt = $yhteys->query($sql);
 ?>
 <!-- Header -->
