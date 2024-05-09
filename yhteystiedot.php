@@ -36,10 +36,10 @@
       
       <div class="row mt-5 tyontekija">
         <div class="col-sm-3">
-          <img src="img/tyontekija1.jpg" class="rounded-circle mb-3" alt="Työntekijän kuva" style="max-width: 200px;">
+          <img src="img/tyontekija1.jpg" class="rounded-circle" alt="Työntekijän kuva" style="max-width: 150px;">
         </div>
-        <div class="col-sm-6">
-          <h5 class="mt-0">Esimerkki Työntekijä</h5>
+        <div class="col-sm-6 mt-2">
+          <h5>Esimerkki Työntekijä</h5>
           <p>Tehtävä: Huoltohenkilö</p>
           <p>Puhelin: 010 123 4567</p>
           <p>Sähköposti: esimerkki.tyontekija@kiinteistohuolto.fi</p>
@@ -48,10 +48,10 @@
       
       <div class="row mt-5 tyontekija">
         <div class="col-sm-3">
-          <img src="img/tyontekija2.jpg" class="rounded-circle mb-3" alt="Työntekijän kuva" style="max-width: 200px;">
+          <img src="img/tyontekija2.jpg" class="rounded-circle" alt="Työntekijän kuva" style="max-width: 150px;">
         </div>
-        <div class="col-sm-6">
-          <h5 class="mt-0">Toinen Esimerkki</h5>
+        <div class="col-sm-6 mt-2">
+          <h5>Toinen Esimerkki</h5>
           <p>Tehtävä: Huoltohenkilö</p>
           <p>Puhelin: 020 987 6543</p>
           <p>Sähköposti: toinen.esimerkki@kiinteistohuolto.fi</p>
