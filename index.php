@@ -7,7 +7,7 @@ require_once 'Utils/connect.php';
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-  <title>Kiinteistöhuolto</title>
+  <title>Kiinteistöhuolto R. Autio Oy</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -36,18 +36,14 @@ require_once 'Utils/connect.php';
         </div>
     </div>
 
-    <div id="kommentti">
-        <div class="container">
-            <div class="row">
+            <div id="kommentti" class="row">
                 <div class="col-sm-12 col-md-12 col-xl-12">
                     <q>R. Autio Oy:llä huolto pelaa!</q>
                     <p id="vasen"><i>Tyytyväinen asukas</i></p>
                 </div>
             </div>
-        </div>
-    </div>
     
-    <div id="alarivi" class="row">
+    <div class="row mt-5">
         <div class="col-sm-12 text-center">
             <h5>Kiinteistöhuolto Oy tarjoaa kattavat kiinteistönhuoltopalvelut yrityksille ja yksityisille taloyhtiöille. Palveluihimme kuuluvat muun muassa:</h5>
             <ul id="lista">
@@ -56,11 +52,9 @@ require_once 'Utils/connect.php';
                 <li>Pihanhoito ja lumityöt</li>
                 <li>Kiinteistöjen kunnossapito</li>
             </ul>
-        </div>
-    
-        
+        </div>   
     </div>
-    <div id="alarivi" class="row">
+    <div class="row mt-5">
             <div class="col-sm-12 col-md-6">
                 <h4>Yhteystiedot:</h4>
                 <p><b>Puhelin:</b> 010 123 4567</p>

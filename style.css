@@ -41,7 +41,8 @@ iframe{
   font-size: 30px;
   height: 200px;
   padding: 50px;
-  margin-top: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border-radius: 20px;
 }
 
@@ -63,13 +64,17 @@ iframe{
   }
 }
 
-#alarivi {
-    padding: 50px;
-}
 
 #lista{
     display: inline-block;
     text-align: left;
     padding-top: 20px;
 }
+
+.tyontekija{
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    padding: 15px;
+}
+
 
