@@ -1,9 +1,75 @@
 body {
     padding-top: 100px;
     padding-bottom: 400px;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 @media (max-width: 768px) {
     body {
         padding-top: 150px;
     }
 }
+
+p{
+    font-size: 16px !important;
+}
+
+#imgindex{
+    width: 100%; /* haluttu leveys */
+    height: 500px; /* haluttu korkeus */
+    object-fit: cover; /* leikkaa kuva neliöksi */
+    opacity: 0.8;
+}
+
+#yritysnimi{
+    padding: 60px;
+
+    margin-bottom: 30px;
+}
+#tervetuloa{
+    padding-bottom: 10px;
+}
+
+iframe{
+    border-radius: 20px;
+}
+
+#kommentti {
+  background-color: #f1f1f1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  height: 200px;
+  padding: 50px;
+  margin-top: 60px;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  #kommentti {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  #kommentti {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #kommentti {
+    font-size: 30px;
+  }
+}
+
+#alarivi {
+    padding: 50px;
+}
+
+#lista{
+    display: inline-block;
+    text-align: left;
+    padding-top: 20px;
+}
+

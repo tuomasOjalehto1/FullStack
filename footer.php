@@ -35,7 +35,7 @@
                     <p class="my-1">R. Autio Oy</p>
                     <p class="my-1">Puhelinnumero: 010 1234 567</p>
                     <p class="my-1">Sähköposti: info@kiinteistohuolto.fi</p>
-                    <p class="my-1">Pohjolankatu 23, 00100 Helsinki</p>
+                    <p class="my-1">Pohjolankatu 23, 00610 Helsinki</p>
                 </div>
 
             </div>
