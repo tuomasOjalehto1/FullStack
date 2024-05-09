@@ -3,6 +3,8 @@
 body {
     overflow-x: hidden;
     position: relative;
+    min-height: 100vh;  /* Varmistaa, että body on vähintään yhtä korkea kuin näyttö */
+
 }
 
 .footer {
@@ -11,16 +13,6 @@ body {
     bottom: 0;
     width: 100%;
 }
-
-a:hover {
-    text-decoration: underline;
-}
-
-/*.footer-content img {
-    width: 25px;
-    height: 25px;
-    margin-right: 5px;
-}*/
 
 .h5 {
     margin-top: 50px;
