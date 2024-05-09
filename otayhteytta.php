@@ -1,7 +1,6 @@
 <?php
 require_once 'Utils/connect.php';
 
-
 // Tarkistetaan, onko lomake lähetetty
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Otetaan vastaan lomakkeen tiedot ja suodatetaan ne
@@ -10,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $puhelin = filter_input(INPUT_POST, 'puhelin', FILTER_SANITIZE_STRING);
     $yritys = filter_input(INPUT_POST, 'yritys', FILTER_SANITIZE_STRING);
     $sposti = filter_input(INPUT_POST, 'sposti', FILTER_SANITIZE_EMAIL);
-    $viesti = filter_input(INPUT_POST, 'viesti', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $viesti = filter_input(INPUT_POST, 'viesti', FILTER_SANITIZE_STRING);
 
     // Valmistellaan SQL-lause tietojen tallentamista varten
     try {
@@ -28,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch(PDOException $e) {
         $message = "<p class='alert alert-danger text-center'>Tietokantaan lisääminen epäonnistui: " . $e->getMessage() . "</p>";
     }
-    }
+}
 
 ?>
 <!--Tässä header-->

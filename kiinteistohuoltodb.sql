@@ -79,8 +79,18 @@ CREATE TABLE `otayhteyttataulu` (
   `puhelin` varchar(20) NOT NULL,
   `yritys` varchar(100) NOT NULL,
   `sposti` varchar(100) NOT NULL,
-  `viesti` text NOT NULL
+  `viesti` text NOT NULL,
+  `luontipvm` datetime DEFAULT current_timestamp(),
+  `status` enum('Uusi','Käsittelyssä','Hoidettu') DEFAULT 'Uusi'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Vedos taulusta `otayhteyttataulu`
+--
+
+INSERT INTO `otayhteyttataulu` (`id`, `etunimi`, `sukunimi`, `puhelin`, `yritys`, `sposti`, `viesti`, `luontipvm`, `status`) VALUES
+(16, 'Maija', 'Malli', '050987654', 'Helsingin Kaupunki', 'maija.malli@helsinki.com', 'Hei,\r\nOlen kiinnostunut saamaan lisätietoa tarjoamistanne kiinteistönhuoltopalveluista. ', '2024-05-09 00:00:00', 'Käsittelyssä'),
+(25, 'Mikko', 'Malli', '040123456', 'Yritys oy', 'mikko.malli@posti.com', 'Hei,\r\n\r\nOlen kiinnostunut kiinteistönhuoltopalveluistanne ja haluaisin saada tarjouksen seuraavista palveluista:\r\n\r\nSäännöllinen siivouspalvelu toimistotiloihimme, joka sisältäisi lattioiden puhdistuksen, pölyjen pyyhkimisen ja roskien poiston.\r\nTalonmiehen palvelut pienille korjaustöille ja huoltotehtäville.\r\nKiinteistömme sijaitsee Helsingin keskustassa ja käsittää noin 1200 neliömetriä toimistotilaa.\r\n\r\nOlisi hienoa, jos voisitte ottaa yhteyttä ja keskustella yksityiskohdista sekä tarjota kustannusarvion.', '2024-05-10 01:41:13', 'Uusi');
 
 -- --------------------------------------------------------
 
@@ -187,7 +197,8 @@ ALTER TABLE `kayttaja_ja_salasana`
 -- AUTO_INCREMENT for table `otayhteyttataulu`
 --
 ALTER TABLE `otayhteyttataulu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+COMMIT;
 
 --
 -- AUTO_INCREMENT for table `tehtavataulu`
