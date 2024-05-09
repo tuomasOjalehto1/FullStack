@@ -26,17 +26,17 @@
                         <form method="POST" action="Utils/kirjautuminen.php">
                             <div class="mb-3 row">
                                 <div class="form-floating">
-                                    <input type="text" name="sposti" class="form-control" id="floatingInput" placeholder="nimi@esimerkki.fi">
+                                    <input type="text" name="sposti" class="form-control" id="floatingInput">
                                     <label for="floatingInput">Käyttäjätunnus</label>
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <div class="form-floating">
-                                    <input type="password" name="salasana" class="form-control" id="floatingPassword" placeholder="Salasana">
+                                    <input type="password" name="salasana" class="form-control" id="floatingPassword">
                                     <label for="floatingPassword">Salasana</label>
                                 </div>
                             </div>
-                            <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">Kirjaudu</button>
+                            <button class="w-100 btn btn-lg btn-light" type="submit" name="submit">Kirjaudu</button>
                             <!--<h6 class="mt-3">Jos sinulla ei ole käyttäjätunnusta  <a href="register.php">Luo tunnus</a></h6>-->
                         </form>
                     </main>
