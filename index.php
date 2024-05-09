@@ -21,7 +21,7 @@ require_once 'Utils/connect.php';
     </div>
     <div class="row">
         <div class="col-sm">
-            <h4 id="tervetuloa">Tervetuloa R. Autio Oy:n maailmaan, missä kiinteistöhuolto saa uuden merkityksen.</h4>
+            <h4 id="tervetuloa">Tervetuloa R. Autio Oy:n maailmaan, missä kiinteistöhuolto saa uuden merkityksen!</h4>
             <p>Olemme sitoutuneita tarjoamaan ensiluokkaista palvelua asiakkaillemme, olipa kyse sitten pienestä taloyhtiöstä tai laajasta liikekiinteistöstä.</p>
             <p>R. Autio Oy on luotettava ja ammattitaitoinen kumppani, joka huolehtii kiinteistösi kunnosta ja turvallisuudesta.</p>
             <p>Tiimimme koostuu alansa huippuosaajista, jotka ovat omistautuneita työlleen ja asiakkaidemme tarpeiden täyttämiselle.</p>
