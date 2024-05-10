@@ -2,13 +2,13 @@
 session_start();
 
 // Tarkista, onko käyttäjä kirjautunut sisään
-if (!isset($_SESSION['sposti'])) {
-    // Ohjaa kirjautumissivulle, jos käyttäjä ei ole kirjautunut
-    header("location: asukas.php");
-    exit;
-}
+// if (!isset($_SESSION['sposti'])) {
+//     // Ohjaa kirjautumissivulle, jos käyttäjä ei ole kirjautunut
+//     header("location: asukas.php");
+//     exit;
+// }
 
-$id = $_SESSION['id'];
+// $id = $_SESSION['id'];
 ?>
 
 <!--Tässä header-->

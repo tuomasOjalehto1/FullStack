@@ -10,6 +10,7 @@ if (isset($_SESSION['sposti'])) {
 }
 
 if (isset($_POST['submit'])) {
+    //Vika oli kayttaja_ja_salasana nimikonfliktissa
     if ($_POST['sposti'] == '' || $_POST['salasana'] == '') {
         echo '<script>alert("Tietoja puuttuu!");</script>';
     } else {
@@ -35,9 +36,17 @@ if (isset($_POST['submit'])) {
                     $query_asiakas->execute([':sposti' => $user['sposti']]);
                     $asiakas = $query_asiakas->fetch(PDO::FETCH_ASSOC);
 
+                    // if ($asiakas) {
+                    //     $_SESSION["id"] = $asiakas["id"];
+                    //     header("location: ../asukas.php?id=" . $asiakas['id']);
+                    //     exit;
+                    // } else {
+                    //     echo '<script>alert("Asiakasta ei löytynyt!");</script>';
+                    // }
+
                     if ($asiakas) {
                         $_SESSION["id"] = $asiakas["id"];
-                        header("location: ../asukas.php?id=" . $asiakas['id']);
+                        header("location: ../asukas.php");
                         exit;
                     } else {
                         echo '<script>alert("Asiakasta ei löytynyt!");</script>';
@@ -61,9 +70,18 @@ if (isset($_POST['submit'])) {
                     $query_tyontekija->execute([':sposti' => $user['sposti']]);
                     $tyontekija = $query_tyontekija->fetch(PDO::FETCH_ASSOC);
 
+                    // if ($tyontekija) {
+                    //     $_SESSION["id"] = $tyontekija["id"];
+                    //     header("location: ../tyontekija.php?id=" . $tyontekija['id']);
+                    //     exit;
+                    // } else {
+                    //     echo '<script>alert("Työntekijää ei löytynyt!");</script>';
+                    // }
+                    // break;
+
                     if ($tyontekija) {
                         $_SESSION["id"] = $tyontekija["id"];
-                        header("location: ../tyontekija.php?id=" . $tyontekija['id']);
+                        header("location: ../tyontekija.php");
                         exit;
                     } else {
                         echo '<script>alert("Työntekijää ei löytynyt!");</script>';

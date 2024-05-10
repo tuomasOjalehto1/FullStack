@@ -2,16 +2,16 @@
 session_start();
 
 // Varmista, että istunto on asetettu ja näytä istunnon id
-if (isset($_SESSION["id"])) {
-    echo "Session ID: " . $_SESSION["id"];
-    echo $_SESSION["sposti"];
-} else {
-    echo "Session ID not set.";
-}
+// if (isset($_SESSION["id"])) {
+//     echo "Session ID: " . $_SESSION["id"];
+//     echo $_SESSION["sposti"];
+// } else {
+//     echo "Session ID not set.";
+// }
 
 
 
-$id = $_SESSION["id"];
+// $id = $_SESSION["id"];
 
 require_once 'Utils/connect.php';
 
