@@ -1,5 +1,5 @@
 <?php
-      require 'Utils/connect.php';
+    require_once 'connect.php';
       
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
     $id = $_POST['id']; 
