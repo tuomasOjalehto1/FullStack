@@ -22,7 +22,7 @@ $id = $_SESSION['id'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="asukasstyle.css" />
-    <link href="style.css" rel="stylesheet">
+    <link href="Styles/style.css" rel="stylesheet">
 </head>
 <body>
     <div class="p-5 bg-primary text-white text-center"> <!--CSS joku koti taustakuva -->

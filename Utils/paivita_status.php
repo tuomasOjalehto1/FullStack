@@ -1,5 +1,5 @@
 <?php
-require_once 'Utils/connect.php';
+require_once 'connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'], $_POST['status'])) {
     $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
