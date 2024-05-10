@@ -44,8 +44,17 @@ if (isset($_POST['submit'])) {
                     }
                     break;
                 case 2:
+                    //Haetaan isännöitsijä
+                    $query_isannoitsija = $yhteys->prepare("SELECT id FROM tyontekijataulu WHERE sposti = :sposti");
+                    $query_isannoitsija->execute([':sposti' => $user['sposti']]);
+                    $isannoitsija = $query_isannoitsija->fetch(PDO::FETCH_ASSOC);
+
+                    if ($isannoitsija) {
+                        $_SESSION["id"] = $isannoitsija["id"];
+
                     header("location: ../isannoitsija.php");
                     exit;
+                    }
                 case 3:
                     // Haetaan työntekijän id tyontekijataulusta käyttäjän sähköpostiosoitteen perusteella
                     $query_tyontekija = $yhteys->prepare("SELECT id FROM tyontekijataulu WHERE sposti = :sposti");

@@ -47,7 +47,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
           <th>Osoite</th>
           <th>Huoltotyyppi</th>
           <th>Kuvaus</th>
-
+          <th></th>
         </tr>
       </thead>
       <tbody>

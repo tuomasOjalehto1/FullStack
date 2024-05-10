@@ -12,7 +12,7 @@ $stmt_tyontekijat = $yhteys->query($sql_tyontekijat);
 ?>
 
 <!--Tässä header-->
-<?php require_once 'header.php'; ?>
+<?php require_once 'header_kirjautunut.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fi">
@@ -25,7 +25,7 @@ $stmt_tyontekijat = $yhteys->query($sql_tyontekijat);
     <link href="Styles/style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="p-5 bg-dark text-white text-center"> <!--CSS joku koti taustakuva -->
+    <div class="header p-5 text-dark text-center"> <!--isännöitsijä sivun header -->
         <h1>Isännöitsijä</h1>
     </div>
     <div class="container mt-5">
@@ -56,6 +56,7 @@ $stmt_tyontekijat = $yhteys->query($sql_tyontekijat);
           <th>Ilmoittajan nimi</th>
           <th>Osoite</th>
           <th>Huoltotyyppi</th>
+          <th>Tehtävän id</th>
           <th>Kuvaus</th>
           <th>Työntekijä</th>
           <th></th>
@@ -88,6 +89,7 @@ $stmt_tyontekijat = $yhteys->query($sql_tyontekijat);
                 }
 
                 echo "<td>" . $huoltotyyppi . "</td>";
+                echo "<td>" . $row["id"] . "</td>";
                 echo "<td>" . $row["kuvaus"] . "</td>";
 
                 // Tehdään valikkonappi työntekijän valinnalle
