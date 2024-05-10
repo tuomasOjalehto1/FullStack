@@ -25,7 +25,7 @@ $stmt_tyontekijat = $yhteys->query($sql_tyontekijat);
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="p-5 bg-primary text-white text-center"> <!--CSS joku koti taustakuva -->
+    <div class="p-5 bg-dark text-white text-center"> <!--CSS joku koti taustakuva -->
         <h1>Isännöitsijä</h1>
     </div>
     <div class="container mt-5">
