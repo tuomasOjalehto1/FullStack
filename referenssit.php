@@ -7,7 +7,7 @@ require_once 'Utils/connect.php';
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-  <title>Referenssit</title>
+  <title>Referenssit - R. Autio Oy</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Tutustu R. Autio Oy:n referensseihin: toimimme laajasti kiinteistöhuollon alueella. Katso menestyksekkäät projektimme ja asiakaskokemukset.">

@@ -9,7 +9,7 @@ require_once 'Utils/connect.php';
 <head>
   <title>Kiinteistöhuolto R. Autio Oy</title>
   <meta charset="utf-8">
-  <meta name="description" content="TEKSTIÄ">
+  <meta name="description" content="Kiinteistöhuolto R. Autio Oy tarjoaa monipuoliset kiinteistönhuoltopalvelut Helsingissä. Palveluihimme kuuluvat huolto-, korjaus- ja siivouspalvelut sekä taloyhtiöiden ylläpitopalvelut. Ammattitaitoinen tiimimme varmistaa, että kiinteistösi pysyy erinomaisessa kunnossa. Tutustu palveluihimme ja ota yhteyttä!">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="Styles/style.css" rel="stylesheet">
