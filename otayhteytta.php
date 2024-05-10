@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <label for="viesti"></label>
+                                        <label for="viesti" class="form-label"></label>
                                         <textarea class="form-control" rows="5" id="viesti" placeholder="Viestisi" name="viesti" required></textarea>
                                     </div>
                                 </div>
