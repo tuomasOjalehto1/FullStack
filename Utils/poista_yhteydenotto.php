@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
         $stmt->execute();
 
         // Ohjaa käyttäjä takaisin yhteydenottolistaan tai näytä viesti
-        header("Location: isannoitsija.php"); 
+        header("Location: ../isannoitsija.php");
         exit;
     } catch (PDOException $e) {
         die("Poisto epäonnistui: " . $e->getMessage());

@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'], $_POST['status']
     $stmt->bindParam(':id', $id);
     if ($stmt->execute()) {
         // Ohjaa käyttäjä takaisin samaan sivuun viestin päivityksen jälkeen
-        header("Location: isannoitsija.php");
+        header("Location: ../isannoitsija.php");
         exit;
     } else {
         echo "Päivitys epäonnistui.";
