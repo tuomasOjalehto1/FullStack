@@ -1,7 +1,7 @@
 
 <!--Tässä header-->
 <?php require_once 'header.php'; ?>
-<?php require_once 'kasittele_yhdeydenotto.php'; ?>
+<?php require_once 'Utils/kasittele_yhdeydenotto.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fi">
