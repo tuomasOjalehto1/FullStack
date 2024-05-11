@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08.05.2024 klo 12:44
+-- Generation Time: 11.05.2024 klo 12:54
 -- Palvelimen versio: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -64,7 +64,8 @@ CREATE TABLE `kayttaja_ja_salasana` (
 
 INSERT INTO `kayttaja_ja_salasana` (`id`, `sposti`, `salasana`, `rooli`) VALUES
 (1, 'testi1', 'testi1', 3),
-(4, 'testiasiakas1', 'testiasiakas1', 1);
+(4, 'testiasiakas1', 'testiasiakas1', 1),
+(5, 'testiisannoitsija1', 'testiisannoitsija1', 2);
 
 -- --------------------------------------------------------
 
@@ -79,18 +80,8 @@ CREATE TABLE `otayhteyttataulu` (
   `puhelin` varchar(20) NOT NULL,
   `yritys` varchar(100) NOT NULL,
   `sposti` varchar(100) NOT NULL,
-  `viesti` text NOT NULL,
-  `luontipvm` datetime DEFAULT current_timestamp(),
-  `status` enum('Uusi','Käsittelyssä','Hoidettu') DEFAULT 'Uusi'
+  `viesti` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Vedos taulusta `otayhteyttataulu`
---
-
-INSERT INTO `otayhteyttataulu` (`id`, `etunimi`, `sukunimi`, `puhelin`, `yritys`, `sposti`, `viesti`, `luontipvm`, `status`) VALUES
-(16, 'Maija', 'Malli', '050987654', 'Helsingin Kaupunki', 'maija.malli@helsinki.com', 'Hei,\r\nOlen kiinnostunut saamaan lisätietoa tarjoamistanne kiinteistönhuoltopalveluista. ', '2024-05-09 00:00:00', 'Käsittelyssä'),
-(25, 'Mikko', 'Malli', '040123456', 'Yritys oy', 'mikko.malli@posti.com', 'Hei,\r\n\r\nOlen kiinnostunut kiinteistönhuoltopalveluistanne ja haluaisin saada tarjouksen seuraavista palveluista:\r\n\r\nSäännöllinen siivouspalvelu toimistotiloihimme, joka sisältäisi lattioiden puhdistuksen, pölyjen pyyhkimisen ja roskien poiston.\r\nTalonmiehen palvelut pienille korjaustöille ja huoltotehtäville.\r\nKiinteistömme sijaitsee Helsingin keskustassa ja käsittää noin 1200 neliömetriä toimistotilaa.\r\n\r\nOlisi hienoa, jos voisitte ottaa yhteyttä ja keskustella yksityiskohdista sekä tarjota kustannusarvion.', '2024-05-10 01:41:13', 'Uusi');
 
 -- --------------------------------------------------------
 
@@ -107,17 +98,18 @@ CREATE TABLE `tehtavataulu` (
   `etunimi` varchar(11) NOT NULL,
   `sukunimi` varchar(11) NOT NULL,
   `puhelin` varchar(11) NOT NULL,
-  `tyontekija_id` int(11) NOT NULL
+  `tyontekija_id` int(11) NOT NULL,
+  `valmis` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vedos taulusta `tehtavataulu`
 --
 
-INSERT INTO `tehtavataulu` (`id`, `osoite`, `huoltopyynnontyyppi`, `kuvaus`, `ilmoittajanid`, `etunimi`, `sukunimi`, `puhelin`, `tyontekija_id`) VALUES
-(7, 'testi1', 1, 'testi1', 1, 'testi1', 'testi1', 'testi1', 1),
-(8, 'testi2', 2, 'testi2', 11, 'testi2', 'testi2', 'testi2', 0),
-(9, 'testi3', 2, 'testi3', 1, 'testi3', 'testi3', 'testi3', 1);
+INSERT INTO `tehtavataulu` (`id`, `osoite`, `huoltopyynnontyyppi`, `kuvaus`, `ilmoittajanid`, `etunimi`, `sukunimi`, `puhelin`, `tyontekija_id`, `valmis`) VALUES
+(7, 'testi1', 1, 'testi1', 1, 'testi1', 'testi1', 'testi1', 1, 1),
+(8, 'testi2', 2, 'testi2', 11, 'testi2', 'testi2', 'testi2', 0, 0),
+(9, 'testi3', 2, 'testi3', 1, 'testi3', 'testi3', 'testi3', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -140,7 +132,8 @@ CREATE TABLE `tyontekijataulu` (
 --
 
 INSERT INTO `tyontekijataulu` (`id`, `etunimi`, `sukunimi`, `osoite`, `puhelin`, `omatila`, `sposti`) VALUES
-(1, 'testi1', 'testi1', 'testi1', 'testi1', 1, 'testi1');
+(1, 'testi1', 'testi1', 'testi1', 'testi1', 1, 'testi1'),
+(3, 'testiisannoitsija1', 'testiisannoitsija1', 'testiisannoitsija1', 'testiisannoitsija1', 1, 'testiisannoitsija1');
 
 --
 -- Indexes for dumped tables
@@ -191,14 +184,13 @@ ALTER TABLE `asiakastaulu`
 -- AUTO_INCREMENT for table `kayttaja_ja_salasana`
 --
 ALTER TABLE `kayttaja_ja_salasana`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `otayhteyttataulu`
 --
 ALTER TABLE `otayhteyttataulu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tehtavataulu`
@@ -210,7 +202,7 @@ ALTER TABLE `tehtavataulu`
 -- AUTO_INCREMENT for table `tyontekijataulu`
 --
 ALTER TABLE `tyontekijataulu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Rajoitteet vedostauluille

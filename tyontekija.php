@@ -31,9 +31,12 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="Styles/style.css" rel="stylesheet">
+
+
+  <!--Javascirpt tiedosto jolla käsitellään sitä onko checkbox ruksattu-->
+  <script src="Utils/CheckBoxKasittely.js"></script>
 </head>
 <body>
-  
 
   <!-- Näytä tiedot taulukkomuodossa -->
   <div class="container mt-5">
@@ -47,6 +50,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
           <th>Osoite</th>
           <th>Huoltotyyppi</th>
           <th>Kuvaus</th>
+          <th>Valmis</th>
           <th></th>
         </tr>
       </thead>
@@ -60,6 +64,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
                 echo "<td>" . $row["etunimi"] . "</td>";
                 echo "<td>" . $row["sukunimi"] . "</td>";
                 echo "<td>" . $row["osoite"] . "</td>";
+                
 
                 // Muutetaan huoltopyynnontyyppi numerosta tekstiksi
                 $huoltotyyppi = "";
@@ -80,6 +85,14 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
 
                 echo "<td>" . $huoltotyyppi . "</td>";
                 echo "<td>" . $row["kuvaus"] . "</td>";
+
+
+                // Valmis-checkbox
+                echo "<td>";
+                echo "<input type='checkbox' name='valmis' " . ($row['valmis'] == 1 ? 'checked' : '') . ">";
+                echo "</td>";
+
+
                 
                 // Poistamis nappi
                 echo "<td>";
@@ -91,6 +104,8 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
                 echo "</td>";
 
                 echo "</tr>";
+
+
             }
         } else {
             echo "<tr><td colspan='7'>Ei tehtäviä</td></tr>";
@@ -99,6 +114,27 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
       </tbody>
     </table>
   </div>
+        
+    
+  <div class="container mt-3">
+    <h2>Lähetä tehtävät</h2>
+    <form id="tehtavatForm" method="post" action="Utils/TallennaTehtavanTila.php">
+      <button type="button" id="lahetaTehtavat" class="btn btn-primary mt-3">Lähetä tehtävät</button>
+    </form>
+
+  </div>
+
+  
+  <div class="container mt-3">
+  <h2>Omat tiedot</h2>
+  <form method="post" action="Utils/TallennaOmatila.php">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="kaytettavissa" name="kaytettavissa">
+      <label class="form-check-label" for="kaytettavissa">Käytettävissä</label>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Tallenna</button>
+  </form>
+</div>
 
   <!-- Footer -->
   <?php require_once 'footer.php'; ?>
