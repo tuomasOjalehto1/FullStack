@@ -36,7 +36,7 @@
                                     <label for="floatingPassword">Salasana</label>
                                 </div>
                             </div>
-                            <button class="w-100 btn btn-lg btn-light" type="submit" name="submit">Kirjaudu</button>
+                            <button class="w-100 btn btn-lg btn-outline-secondary" type="submit" name="submit">Kirjaudu</button>
                             <!--<h6 class="mt-3">Jos sinulla ei ole käyttäjätunnusta  <a href="register.php">Luo tunnus</a></h6>-->
                         </form>
                     </main>

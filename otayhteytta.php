@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                             </div>               
-                            <button type="submit" class="btn btn-primary">Lähetä</button>
+                            <button type="submit" class="btn btn-outline-secondary">Lähetä</button>
                         </form> 
                         <br>
                         <!-- Viestin sijoitus täällä -->
