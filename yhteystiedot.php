@@ -1,5 +1,18 @@
 <!--Tässä header-->
-<?php require_once 'header.php'; ?>
+<?php session_start(); ?>
+
+<?php
+// Tarkista, onko käyttäjä kirjautunut sisään
+if (isset($_SESSION['sposti'])) {
+    // Käyttäjä on kirjautunut sisään, sisällytä kirjautuneen headerin
+    require_once 'header_kirjautunut.php';
+} else {
+    // Käyttäjä ei ole kirjautunut sisään, sisällytä tavallinen header
+    require_once 'header.php';
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
