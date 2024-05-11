@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 11.05.2024 klo 12:54
--- Palvelimen versio: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: localhost
+-- Generation Time: 11.05.2024 klo 17:50
+-- Palvelimen versio: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -80,8 +80,18 @@ CREATE TABLE `otayhteyttataulu` (
   `puhelin` varchar(20) NOT NULL,
   `yritys` varchar(100) NOT NULL,
   `sposti` varchar(100) NOT NULL,
-  `viesti` text NOT NULL
+  `viesti` text NOT NULL,
+  `luontipvm` datetime DEFAULT current_timestamp(),
+  `satus` enum('Uusi','Käsittelyssä','Hoidettu') DEFAULT 'Uusi'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Vedos taulusta `otayhteyttataulu`
+--
+
+INSERT INTO `otayhteyttataulu` (`id`, `etunimi`, `sukunimi`, `puhelin`, `yritys`, `sposti`, `viesti`, `luontipvm`, `satus`) VALUES
+(6, 'Maija', 'Malli', '0401234567', '', 'maija.malli@posti.com', 'Hei,\r\nOlen kiinnostunut saamaan lisätietoa tarjoamistanne kiinteistönhuoltopalveluista. ', '2024-05-11 18:47:50', 'Uusi'),
+(7, 'Mikko', 'Mallikas', '050987654', 'Helsingin kaupunki', 'mikko.mallikas@email.com', 'Hei,\r\n\r\nOlen kiinnostunut kiinteistönhuoltopalveluistanne ja haluaisin saada tarjouksen seuraavista palveluista:\r\n\r\nSäännöllinen siivouspalvelu toimistotiloihimme, joka sisältäisi lattioiden puhdistuksen, pölyjen pyyhkimisen ja roskien poiston.\r\nTalonmiehen palvelut pienille korjaustöille ja huoltotehtäville.\r\nKiinteistömme sijaitsee Helsingin keskustassa ja käsittää noin 1200 neliömetriä toimistotilaa.\r\n\r\nOlisi hienoa, jos voisitte ottaa yhteyttä ja keskustella yksityiskohdista sekä tarjota kustannusarvion.', '2024-05-11 18:49:32', 'Uusi');
 
 -- --------------------------------------------------------
 
@@ -190,7 +200,7 @@ ALTER TABLE `kayttaja_ja_salasana`
 -- AUTO_INCREMENT for table `otayhteyttataulu`
 --
 ALTER TABLE `otayhteyttataulu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tehtavataulu`
