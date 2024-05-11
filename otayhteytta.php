@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-  <title>Ota yhteyttä</title>
+  <title>Ota yhteyttä - R. Autio Oy</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <label for="viesti"></label>
+                                        <label for="viesti" class="form-label"></label>
                                         <textarea class="form-control" rows="5" id="viesti" placeholder="Viestisi" name="viesti" required></textarea>
                                     </div>
                                 </div>

@@ -71,6 +71,10 @@
       <p><b>Puhelin:</b> 010 123 4567</p>
       <p><b>Sähköposti:</b> info@kiinteistohuolto.fi</p>
       <p><b>Osoite:</b> Pohjolankatu 23, 00610 Helsinki</p>
+      <h4>Aukioloajat:</h4>
+      <p>Maanantai - Perjantai: 9:00 - 17:00</p>
+      <p>Lauantai: Suljettu</p>
+      <p>Sunnuntai: Suljettu</p>
     </div>
     <div class="col-sm-12 col-md-6">
       <!-- Google Maps upotus -->
