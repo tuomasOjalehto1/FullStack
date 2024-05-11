@@ -16,7 +16,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col">
-            <h2 class="mb-3 text-center">Ota yhteyttä</h2>
+            <h2 class="mt-4 text-center">Ota yhteyttä</h2>
             <div class="container mt-5">
                 <div class="row justify-content-center">
                     <div class="col-sm-12 col-md-10 padding">
