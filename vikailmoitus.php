@@ -31,7 +31,7 @@
     </div>
     <div class="container mt-3">
       <h4>Ilmoituksen jättäjän tiedot:</h4>
-        <form action="TallennaVikailmoitus.php" method="POST"> <!--FORM 2 Ilmoituksen jättäjän tiedot-->
+        <form action="Utils/tallennaVikailmoitus.php" method="POST"> <!--FORM 2 Ilmoituksen jättäjän tiedot-->
           
             <div class="row">
                   <div class="col">
