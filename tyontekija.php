@@ -78,9 +78,9 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
                 echo "<td>" . $row["kuvaus"] . "</td>";
 
                 
+                // Työntekijän kommentti
                 echo "<td>";
-                echo "<textarea name='kommentti_" . $row['id'] . "' id='kommentti_" . $row['id'] . "' rows='3' cols='30'></textarea>";
-                echo "<input type='hidden' name='tehtava_id[]' value='" . $row['id'] . "'>";
+                echo "<textarea name='kommentti_" . $row['id'] . "' id='kommentti_" . $row['id'] . "' rows='3' cols='30'>" . $row['tyontekijakommentti'] . "</textarea>";
                 echo "</td>";
 
 
@@ -122,13 +122,23 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
   </div>
 
   
-<div class="container mt-3">
+  <div class="container mt-3">
   <h2>Omat tiedot</h2>
   <form method="post" action="Utils/TallennaOmatila.php">
     <div class="form-check">
       <?php
-      // Tarkistetaan tallennettu arvo
-      $checked = ($_SESSION['omatila'] == 1) ? 'checked' : '';
+          
+          // Haetaan työntekijän omatila-arvo tietokannasta
+          $sqlOmaTila = "SELECT omatila FROM tyontekijataulu WHERE id = :tyontekija_id";
+          $stmtOmaTila = $yhteys->prepare($sqlOmaTila);
+          $stmtOmaTila->execute([':tyontekija_id' => $_SESSION["id"]]);
+          
+          $omatila = $stmtOmaTila->fetchColumn(); // Haetaan omatila-arvo
+          
+          // Tarkistetaan, onko omatila true vai false
+          $checked = ($omatila == 1) ? 'checked' : '';
+          
+
       ?>
       <input class="form-check-input" type="checkbox" id="kaytettavissa" name="kaytettavissa" <?php echo $checked; ?>>
       <label class="form-check-label" for="kaytettavissa">Käytettävissä</label>
@@ -136,6 +146,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
     <button type="submit" class="btn btn-primary mt-3">Tallenna</button>
   </form>
 </div>
+
 
 
   <!-- Footer -->
