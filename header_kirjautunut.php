@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -28,9 +31,28 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="yhteystiedot.php">Yhteystiedot</a>
                                 </li>
+                                <?php
+                                    // Tässä osiossa voit tarkistaa käyttäjän roolin ja lisätä linkin "Omat sivut" vastaavasti
+                                    
+                                    if (isset($_SESSION['rooli'])) {
+                                        switch ($_SESSION['rooli']) {
+                                            case 1:
+                                                echo '<li class="nav-item"><a class="nav-link" href="asukas.php">Asukassivut</a></li>';
+                                                break;
+                                            case 2:
+                                                echo '<li class="nav-item"><a class="nav-link" href="isannoitsija.php">Isännöitsijäsivut</a></li>';
+                                                break;
+                                            case 3:
+                                                echo '<li class="nav-item"><a class="nav-link" href="tyontekija.php">Työntekijäsivut</a></li>';
+                                                break;
+                                        }
+                                    }
+
+                                ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="kirjautuminen_ulos.php">Kirjaudu ulos</a>
                                 </li>
+                                
                             </ul>
                         </div>
                     </nav>
@@ -39,7 +61,6 @@
         </div>
     </header>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
-
 </body>
 </html>
+

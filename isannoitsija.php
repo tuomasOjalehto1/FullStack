@@ -23,7 +23,7 @@ $results = haeTehtavat($yhteys);
 </head>
 <body>
 
-    <div class="header p-5 text-dark text-center"> <!--isännöitsijä sivun header -->
+    <div class="p-5 text-dark text-center"> <!--isännöitsijä sivun header -->
         <h1>Isännöitsijä</h1>
     </div>
     <div class="container mt-5">
@@ -136,11 +136,11 @@ $results = haeTehtavat($yhteys);
             echo "<option value='Hoidettu'" . ($row['status'] == 'Hoidettu' ? ' selected' : '') . ">Hoidettu</option>";
             echo "</select>";
             echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
-            echo "<button type='submit' class='btn btn-primary mt-1'>Päivitä</button>";
+            echo "<button type='submit' class='btn btn-outline-primary mt-1'>Päivitä</button>";
             echo "</form>";
             echo "<form method='post' action='Utils/poista_yhteydenotto.php' style='margin-top: 10px;'>";
             echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
-            echo "<button type='submit' class='btn btn-danger'>Poista</button>";
+            echo "<button type='submit' class='btn btn-outline-danger'>Poista</button>";
             echo "</form>";
             echo "</td>";
             echo "</tr>";
@@ -156,7 +156,7 @@ $results = haeTehtavat($yhteys);
             echo nl2br(htmlspecialchars($row['viesti']));
             echo "</div>";
             echo "<div class='modal-footer'>";
-            echo "<button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Sulje</button>";
+            echo "<button type='button' class='btn btn-outline-secondary' data-bs-dismiss='modal'>Sulje</button>";
             echo "</div>";
             echo "</div>";
             echo "</div>";

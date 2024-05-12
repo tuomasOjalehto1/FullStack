@@ -28,7 +28,7 @@ session_start();
     
 </head>
 <body>
-    <div class="header p-5 text-dark text-center"> 
+    <div class="p-5 text-dark text-center"> 
         <h1>Asukassivut</h1>
     </div>
     <div class="container mt-5">

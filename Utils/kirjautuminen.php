@@ -63,7 +63,10 @@ if (isset($_POST['submit'])) {
 
                     header("location: ../isannoitsija.php");
                     exit;
+                    } else {
+                        echo '<script>alert("Isännöitsijää ei löytynyt!");</script>';
                     }
+                    break;
                 case 3:
                     // Haetaan työntekijän id tyontekijataulusta käyttäjän sähköpostiosoitteen perusteella
                     $query_tyontekija = $yhteys->prepare("SELECT id FROM tyontekijataulu WHERE sposti = :sposti");

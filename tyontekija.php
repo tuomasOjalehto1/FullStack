@@ -32,7 +32,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
   <!-- Näytä tiedot taulukkomuodossa -->
   <div class="container mt-5">
     <h2>Kaikki tehtävät</h2>
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Ilmoittajan ID</th>
@@ -97,7 +97,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
                 //Osoittaa oikeaan tiedostoon
                 echo "<form method='post' action='Utils/PoistaTehtava.php'>";
                 echo "<input type='hidden' name='delete_id' value='" . $row['id'] . "'>";
-                echo "<button type='submit' class='btn btn-danger'>Poista tehtävä</button>";
+                echo "<button type='submit' class='btn btn-outline-danger'>Poista tehtävä</button>";
                 echo "</form>";
                 echo "</td>";
 
@@ -117,7 +117,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
   <div class="container mt-3">
     <h2>Lähetä tehtävät</h2>
     <form id="tehtavatForm" method="post" action="Utils/TallennaTehtavanTila.php">
-      <button type="button" id="lahetaTehtavat" class="btn btn-primary mt-3">Lähetä tehtävät</button>
+      <button type="button" id="lahetaTehtavat" class="btn btn-outline-primary mt-3">Lähetä tehtävät</button>
     </form>
 
   </div>
@@ -144,7 +144,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
       <input class="form-check-input" type="checkbox" id="kaytettavissa" name="kaytettavissa" <?php echo $checked; ?>>
       <label class="form-check-label" for="kaytettavissa">Käytettävissä</label>
     </div>
-    <button type="submit" class="btn btn-primary mt-3">Tallenna</button>
+    <button type="submit" class="btn btn-outline-success mt-3">Tallenna</button>
   </form>
 </div>
 
