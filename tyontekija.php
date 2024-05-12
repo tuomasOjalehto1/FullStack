@@ -1,18 +1,9 @@
 <?php
 session_start();
 
-// Varmista, että istunto on asetettu ja näytä istunnon id
-// if (isset($_SESSION["id"])) {
-//     echo "Session ID: " . $_SESSION["id"];
-//     echo $_SESSION["sposti"];
-// } else {
-//     echo "Session ID not set.";
-// }
-
-
-
-// $id = $_SESSION["id"];
-
+if (!isset($_SESSION['omatila'])) {
+  $_SESSION['omatila'] = 0; // Voit asettaa oletusarvon tarpeen mukaan
+}
 require_once 'Utils/connect.php';
 
 // Hae kaikki tiedot joihin tallennettu tämän työntekijän id tehtavataulu-taulusta
@@ -86,6 +77,12 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
                 echo "<td>" . $huoltotyyppi . "</td>";
                 echo "<td>" . $row["kuvaus"] . "</td>";
 
+                
+                echo "<td>";
+                echo "<textarea name='kommentti_" . $row['id'] . "' id='kommentti_" . $row['id'] . "' rows='3' cols='30'></textarea>";
+                echo "<input type='hidden' name='tehtava_id[]' value='" . $row['id'] . "'>";
+                echo "</td>";
+
 
                 // Valmis-checkbox
                 echo "<td>";
@@ -125,16 +122,21 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
   </div>
 
   
-  <div class="container mt-3">
+<div class="container mt-3">
   <h2>Omat tiedot</h2>
   <form method="post" action="Utils/TallennaOmatila.php">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="kaytettavissa" name="kaytettavissa">
+      <?php
+      // Tarkistetaan tallennettu arvo
+      $checked = ($_SESSION['omatila'] == 1) ? 'checked' : '';
+      ?>
+      <input class="form-check-input" type="checkbox" id="kaytettavissa" name="kaytettavissa" <?php echo $checked; ?>>
       <label class="form-check-label" for="kaytettavissa">Käytettävissä</label>
     </div>
     <button type="submit" class="btn btn-primary mt-3">Tallenna</button>
   </form>
 </div>
+
 
   <!-- Footer -->
   <?php require_once 'footer.php'; ?>

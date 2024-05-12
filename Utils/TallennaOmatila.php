@@ -1,13 +1,12 @@
-
-
 <?php
 session_start();
 
+// Katsoo onko post metodia käytetty
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Katsoo onko checkbox ruksattu
-    $kaytettavissa = isset($_POST["kaytettavissa"]) ? true : false;
+    // Tarkistetaan onko checkbox ruksattu
+    $kaytettavissa = isset($_POST["kaytettavissa"]) ? 1 : 0; 
     
-    //Tallentaa tietokantaan
+    // Tallennetaan db:hen
     require_once 'connect.php';
 
     $sql = "UPDATE tyontekijataulu SET omatila = :omatila WHERE id = :tyontekija_id";
@@ -17,7 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ':tyontekija_id' => $_SESSION["id"]
     ]);
 
-    
+    // Åysyy sivulla
+    header("Location: ../tyontekija.php");
+    exit();
+} else {
+    // Pysytään sivulla kuitenkin
     header("Location: ../tyontekija.php");
     exit();
 }
