@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: 11.05.2024 klo 18:43
--- Palvelimen versio: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: 12.05.2024 klo 13:07
+-- Palvelimen versio: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -80,18 +80,8 @@ CREATE TABLE `otayhteyttataulu` (
   `puhelin` varchar(20) NOT NULL,
   `yritys` varchar(100) NOT NULL,
   `sposti` varchar(100) NOT NULL,
-  `viesti` text NOT NULL,
-  `luontipvm` datetime DEFAULT current_timestamp(),
-  `status` enum('Uusi','Käsittelyssä','Hoidettu') DEFAULT 'Uusi'
+  `viesti` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Vedos taulusta `otayhteyttataulu`
---
-
-INSERT INTO `otayhteyttataulu` (`id`, `etunimi`, `sukunimi`, `puhelin`, `yritys`, `sposti`, `viesti`, `luontipvm`, `status`) VALUES
-(6, 'Maija', 'Malli', '0401234567', '', 'maija.malli@posti.com', 'Hei,\r\nOlen kiinnostunut saamaan lisätietoa tarjoamistanne kiinteistönhuoltopalveluista. ', '2024-05-11 18:47:50', 'Uusi'),
-(7, 'Mikko', 'Mallikas', '050987654', 'Helsingin kaupunki', 'mikko.mallikas@email.com', 'Hei,\r\n\r\nOlen kiinnostunut kiinteistönhuoltopalveluistanne ja haluaisin saada tarjouksen seuraavista palveluista:\r\n\r\nSäännöllinen siivouspalvelu toimistotiloihimme, joka sisältäisi lattioiden puhdistuksen, pölyjen pyyhkimisen ja roskien poiston.\r\nTalonmiehen palvelut pienille korjaustöille ja huoltotehtäville.\r\nKiinteistömme sijaitsee Helsingin keskustassa ja käsittää noin 1200 neliömetriä toimistotilaa.\r\n\r\nOlisi hienoa, jos voisitte ottaa yhteyttä ja keskustella yksityiskohdista sekä tarjota kustannusarvion.', '2024-05-11 18:49:32', 'Käsittelyssä');
 
 -- --------------------------------------------------------
 
@@ -109,17 +99,18 @@ CREATE TABLE `tehtavataulu` (
   `sukunimi` varchar(11) NOT NULL,
   `puhelin` varchar(11) NOT NULL,
   `tyontekija_id` int(11) NOT NULL,
-  `valmis` tinyint(1) NOT NULL
+  `valmis` tinyint(1) NOT NULL,
+  `tyontekijakommentti` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vedos taulusta `tehtavataulu`
 --
 
-INSERT INTO `tehtavataulu` (`id`, `osoite`, `huoltopyynnontyyppi`, `kuvaus`, `ilmoittajanid`, `etunimi`, `sukunimi`, `puhelin`, `tyontekija_id`, `valmis`) VALUES
-(7, 'testi1', 1, 'testi1', 1, 'testi1', 'testi1', 'testi1', 1, 1),
-(8, 'testi2', 2, 'testi2', 11, 'testi2', 'testi2', 'testi2', 0, 0),
-(9, 'testi3', 2, 'testi3', 1, 'testi3', 'testi3', 'testi3', 1, 1);
+INSERT INTO `tehtavataulu` (`id`, `osoite`, `huoltopyynnontyyppi`, `kuvaus`, `ilmoittajanid`, `etunimi`, `sukunimi`, `puhelin`, `tyontekija_id`, `valmis`, `tyontekijakommentti`) VALUES
+(7, 'testi1', 1, 'testi1', 1, 'testi1', 'testi1', 'testi1', 1, 1, 'testi'),
+(8, 'testi2', 2, 'testi2', 11, 'testi2', 'testi2', 'testi2', 0, 0, ''),
+(9, 'testi3', 2, 'testi3', 1, 'testi3', 'testi3', 'testi3', 1, 1, 'testi2');
 
 -- --------------------------------------------------------
 
@@ -200,7 +191,7 @@ ALTER TABLE `kayttaja_ja_salasana`
 -- AUTO_INCREMENT for table `otayhteyttataulu`
 --
 ALTER TABLE `otayhteyttataulu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tehtavataulu`
