@@ -115,7 +115,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
         
     
   <div class="container mt-3">
-    <h2>Lähetä tehtävät</h2>
+    <h2 class="mb-4">Lähetä tehtävät</h2>
     <form id="tehtavatForm" method="post" action="Utils/TallennaTehtavanTila.php">
       <button type="button" id="lahetaTehtavat" class="btn btn-outline-primary mt-3">Lähetä tehtävät</button>
     </form>
@@ -123,8 +123,8 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
   </div>
 
   
-  <div class="container mt-3">
-  <h2>Omat tiedot</h2>
+  <div class="container mt-5">
+  <h2 class="mb-4">Omat tiedot</h2>
   <form method="post" action="Utils/TallennaOmatila.php">
     <div class="form-check">
       <?php
