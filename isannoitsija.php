@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'Utils/connect.php';
 require_once 'Utils/haeTehtavat.php';
 require_once 'Utils/haeTyontekijat.php'; 

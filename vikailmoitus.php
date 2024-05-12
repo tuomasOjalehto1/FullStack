@@ -1,5 +1,7 @@
 <!-- Header -->
-<?php require_once 'header_kirjautunut.php'; ?>
+<?php 
+session_start();
+require_once 'header_kirjautunut.php'; ?>
 
 
 

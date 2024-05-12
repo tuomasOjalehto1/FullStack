@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -40,6 +38,7 @@ session_start();
                                                 echo '<li class="nav-item"><a class="nav-link" href="asukas.php">Asukassivut</a></li>';
                                                 break;
                                             case 2:
+                                                
                                                 echo '<li class="nav-item"><a class="nav-link" href="isannoitsija.php">Isännöitsijäsivut</a></li>';
                                                 break;
                                             case 3:
