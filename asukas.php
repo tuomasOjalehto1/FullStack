@@ -46,7 +46,7 @@ session_start();
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-12"><br><br>
                 <h2>Asumiseen liittyen</h2>
                 <br>
                 <div id="accordion">

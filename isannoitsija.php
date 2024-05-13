@@ -33,7 +33,12 @@ $results = haeTehtavat($yhteys);
                 <h3 class="mt-4">Ajankohtaiset tiedotteet ja ilmoitukset:</h3>
                     <p>Tiedotteet taloyhtiön asukkaille esimerkiksi tulevista remonteista, yhtiökokouksista, häiriöistä yms.</p>
                 <h3 class="mt-4">Huoltoasiat:</h3>
-                    <p>Huoltohistoria ja tulevien huoltotöiden aikataulutus?? Mitä tälle isännöitsijän sivulle olisi järkevä laittaa?</p>                
+                    <p>Huoltoyhtiö kirjaa huoltohistorian useilla eri tavoilla varmistaakseen asianmukaisen dokumentoinnin ja ylläpidon. Tässä muutamia yleisiä tapoja:</p>
+                    <ul>
+                        <li>Huoltokirja tai -ohjelma</li>
+                        <li>Kirjalliset raportit: Huoltotoimenpiteistä tehdään kirjallisia raportteja, jotka tallennetaan talonyhtiön arkistoihin</li>
+                        <li>Sähköpostiviestit ja muut viestintävälineet: Huoltotöistä ja niiden tuloksista voidaan myös tiedottaa sähköpostitse tai muilla viestintävälineillä.</li>
+                    </ul>               
             </div>
             <div class="col-sm-4">
                 <h3 class="mt-4">Sähköinen lomake</h3>
@@ -59,6 +64,7 @@ $results = haeTehtavat($yhteys);
                 <th>Tehtävän id</th>
                 <th>Kuvaus</th>
                 <th>Työntekijä</th>
+            <!--<th>Aloita tehtävä</th>-->
             </tr>
         </thead>
         <tbody>
