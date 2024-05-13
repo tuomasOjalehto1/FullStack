@@ -15,7 +15,7 @@ session_start();
 <?php require_once 'header_kirjautunut.php'; ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
   <title>Asukas - R. Autio Oy</title>
     <meta charset="utf-8">

@@ -7,7 +7,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
   <title>Kirjaudu - R. Autio Oy</title>
     <meta charset="utf-8">
