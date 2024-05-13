@@ -10,7 +10,7 @@ require_once 'connect.php';
 function haeTehtavat($yhteys) {
     $results = [];
     $sql = "SELECT t.id AS TehtavaID, t.ilmoittajanid, t.etunimi AS IlmoittajanEtunimi, t.sukunimi AS IlmoittajanSukunimi, 
-            t.osoite AS Osoite, t.kuvaus AS Kuvaus, t.tyontekija_id, ty.etunimi AS TyontekijanEtunimi, ty.sukunimi AS TyontekijanSukunimi,
+            t.osoite AS Osoite, t.kuvaus AS Kuvaus, t.tyontekija_id, t.valmis, ty.etunimi AS TyontekijanEtunimi, ty.sukunimi AS TyontekijanSukunimi,
             CASE t.huoltopyynnontyyppi 
                 WHEN 1 THEN 'Huolto- tai korjaus'
                 WHEN 2 THEN 'Siivous'
@@ -28,4 +28,5 @@ function haeTehtavat($yhteys) {
     }
     return $results;
 }
+
 ?>
