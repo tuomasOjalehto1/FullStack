@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'Utils/connect.php';
 require_once 'Utils/haeTehtavat.php';
 require_once 'Utils/haeTyontekijat.php'; 
@@ -23,7 +24,7 @@ $results = haeTehtavat($yhteys);
 </head>
 <body>
 
-    <div class="header p-5 text-dark text-center"> <!--isännöitsijä sivun header -->
+    <div class="p-5 text-dark text-center"> <!--isännöitsijä sivun header -->
         <h1>Isännöitsijä</h1>
     </div>
     <div class="container mt-5">
@@ -32,7 +33,12 @@ $results = haeTehtavat($yhteys);
                 <h3 class="mt-4">Ajankohtaiset tiedotteet ja ilmoitukset:</h3>
                     <p>Tiedotteet taloyhtiön asukkaille esimerkiksi tulevista remonteista, yhtiökokouksista, häiriöistä yms.</p>
                 <h3 class="mt-4">Huoltoasiat:</h3>
-                    <p>Huoltohistoria ja tulevien huoltotöiden aikataulutus?? Mitä tälle isännöitsijän sivulle olisi järkevä laittaa?</p>                
+                    <p>Huoltoyhtiö kirjaa huoltohistorian useilla eri tavoilla varmistaakseen asianmukaisen dokumentoinnin ja ylläpidon. Tässä muutamia yleisiä tapoja:</p>
+                    <ul>
+                        <li>Huoltokirja tai -ohjelma</li>
+                        <li>Kirjalliset raportit: Huoltotoimenpiteistä tehdään kirjallisia raportteja, jotka tallennetaan talonyhtiön arkistoihin</li>
+                        <li>Sähköpostiviestit ja muut viestintävälineet: Huoltotöistä ja niiden tuloksista voidaan myös tiedottaa sähköpostitse tai muilla viestintävälineillä.</li>
+                    </ul>               
             </div>
             <div class="col-sm-4">
                 <h3 class="mt-4">Sähköinen lomake</h3>
@@ -46,8 +52,8 @@ $results = haeTehtavat($yhteys);
         </div>
     </div>
 
-<!-- Huoltotehtävät -->
-<div class="container mt-5">
+    <!--Huoltotehtävät -->
+    <div class="container mt-5">
     <h2>Huoltotehtävä -lista</h2>
     <table class="table table-striped">
         <thead>
@@ -91,8 +97,9 @@ $results = haeTehtavat($yhteys);
             <?php endforeach; ?>
         </tbody>
     </table>
-    <button id="tallennaMuutoksetNappi" class="btn btn-primary">Tallenna muutokset</button>
+    <button id="tallennaMuutoksetNappi" class="btn btn-outline-primary mt-3">Tallenna muutokset</button>
 </div>
+
 
 
 
@@ -148,7 +155,7 @@ $results = haeTehtavat($yhteys);
             echo "</form>";
             echo "<form method='post' action='Utils/poista_yhteydenotto.php' style='margin-top: 10px;'>";
             echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
-            echo "<button type='submit' class='btn btn-danger'>Poista</button>";
+            echo "<button type='submit' class='btn btn-outline-danger'>Poista</button>";
             echo "</form>";
             echo "</td>";
             echo "</tr>";
@@ -164,7 +171,7 @@ $results = haeTehtavat($yhteys);
             echo nl2br(htmlspecialchars($row['viesti']));
             echo "</div>";
             echo "<div class='modal-footer'>";
-            echo "<button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Sulje</button>";
+            echo "<button type='button' class='btn btn-outline-secondary' data-bs-dismiss='modal'>Sulje</button>";
             echo "</div>";
             echo "</div>";
             echo "</div>";
@@ -178,10 +185,6 @@ $results = haeTehtavat($yhteys);
 </tbody>
 </table>
 </div>
-
-
-
-
 
 
 <?php require_once 'footer.php'; ?>
