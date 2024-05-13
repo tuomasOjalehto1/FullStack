@@ -90,7 +90,7 @@ $results = haeTehtavat($yhteys);
                 <td>
                     <form action="Utils/poistaTehtavaIsannoitsijasivu.php" method="post">
                         <input type="hidden" name="delete_id" value="<?= $row['TehtavaID'] ?>">
-                        <button type="submit" class="btn btn-danger">Poista</button>
+                        <button type="submit" class="btn btn-outline-danger">Poista</button>
                     </form>
                 </td>
             </tr>
@@ -140,7 +140,7 @@ $results = haeTehtavat($yhteys);
             echo "<td class='d-none d-lg-table-cell'>" . htmlspecialchars($row["yritys"]) . "</td>";
             echo "<td>" . htmlspecialchars($row["sposti"]) . "</td>";
             echo "<td>";
-            echo "<button class='btn btn-light btn-md' data-bs-toggle='modal' data-bs-target='#viewMessageModal" . $row['id'] . "' data-bs-backdrop='false'>Näytä viesti</button>";
+            echo "<button class='btn btn-outline-light btn-md' data-bs-toggle='modal' data-bs-target='#viewMessageModal" . $row['id'] . "' data-bs-backdrop='false'>Näytä viesti</button>";
             echo "</td>";
             echo "<td class='d-none d-sm-table-cell'>" . $row["formatted_date"] . "</td>";
             echo "<td>";
@@ -151,7 +151,7 @@ $results = haeTehtavat($yhteys);
             echo "<option value='Hoidettu'" . ($row['status'] == 'Hoidettu' ? ' selected' : '') . ">Hoidettu</option>";
             echo "</select>";
             echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
-            echo "<button type='submit' class='btn btn-primary mt-1'>Päivitä</button>";
+            echo "<button type='submit' class='btn btn-outline-primary mt-1'>Päivitä</button>";
             echo "</form>";
             echo "<form method='post' action='Utils/poista_yhteydenotto.php' style='margin-top: 10px;'>";
             echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
