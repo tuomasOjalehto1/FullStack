@@ -5,11 +5,18 @@ if (!isset($_SESSION['omatila'])) {
   $_SESSION['omatila'] = 0; // Voit asettaa oletusarvon tarpeen mukaan
 }
 require_once 'Utils/connect.php';
+require_once 'Utils/haeTehtavat.php';
+require_once 'Utils/haeTyontekijat.php'; 
+require_once 'Utils/paivitaTyontekijaTehtavaanTyontekijaSivu.php';
 
 // Hae kaikki tiedot joihin tallennettu tämän työntekijän id tehtavataulu-taulusta
 $sql = "SELECT * FROM tehtavataulu WHERE tyontekija_id = :tyontekija_id";
 $stmt = $yhteys->prepare($sql);
 $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
+
+$tyontekijat = haeTyontekijat($yhteys);
+$results = haeTehtavat($yhteys);
+
 ?>
 <!-- Header -->
 <?php require_once 'header_kirjautunut.php'; ?>
@@ -148,6 +155,11 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
   </form>
 
 
+
+
+
+
+  
      <!--Työntekijä pystyy lisäämään tehtävän -->
 
     <div class="col-sm-4">
