@@ -140,7 +140,7 @@ $results = haeTehtavat($yhteys);
             echo "<td class='d-none d-lg-table-cell'>" . htmlspecialchars($row["yritys"]) . "</td>";
             echo "<td>" . htmlspecialchars($row["sposti"]) . "</td>";
             echo "<td>";
-            echo "<button class='btn btn-outline-dark btn-md' data-bs-toggle='modal' data-bs-target='#viewMessageModal" . $row['id'] . "' data-bs-backdrop='false'>Näytä viesti</button>";
+            echo "<button class='btn btn-dark btn-md' data-bs-toggle='modal' data-bs-target='#viewMessageModal" . $row['id'] . "' data-bs-backdrop='false'>Näytä viesti</button>";
             echo "</td>";
             echo "<td class='d-none d-sm-table-cell'>" . $row["formatted_date"] . "</td>";
             echo "<td>";
