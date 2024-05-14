@@ -173,7 +173,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
 
   <!--Työntekijä näkee kaikki huoltotehtävät -->
   <div class="container mt-5">
-    <h2>Huoltotehtävä -lista</h2>
+    <h2>Kaikki huoltotehtävät</h2>
     <table class="table table-striped">
         <thead>
             <tr>
