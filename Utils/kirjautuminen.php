@@ -5,14 +5,16 @@ session_start();
 require_once 'connect.php';
 
 if (isset($_SESSION['sposti'])) {
-    header("location: index.php");
+    $_SESSION['error'] = "Olet jo kirjautunut sisään.";
+    header("location: ../index.php");
     exit; // Keskeytetään suoritus, jos käyttäjä on jo kirjautunut
 }
 
 if (isset($_POST['submit'])) {
-    //Vika oli kayttaja_ja_salasana nimikonfliktissa
     if ($_POST['sposti'] == '' || $_POST['salasana'] == '') {
-        echo '<script>alert("Tietoja puuttuu!");</script>';
+        $_SESSION['error'] = "Tietoja puuttuu.";
+        header("location: ../kirjautumissivu.php");
+        exit;
     } else {
         $kayttajatunnus = $_POST['sposti'];
         $salasana = $_POST['salasana'];
@@ -31,25 +33,19 @@ if (isset($_POST['submit'])) {
             // Ohjataan roolin perusteella oikealle sivulle
             switch ($user['rooli']) {
                 case 1:
-                    // Haetaan asiakkaan id asiakastaulusta käyttäjän sähköpostiosoitteen perusteella
+                     // Haetaan asiakkaan id asiakastaulusta käyttäjän sähköpostiosoitteen perusteella
                     $query_asiakas = $yhteys->prepare("SELECT id FROM asiakastaulu WHERE sposti = :sposti");
                     $query_asiakas->execute([':sposti' => $user['sposti']]);
                     $asiakas = $query_asiakas->fetch(PDO::FETCH_ASSOC);
-
-                    // if ($asiakas) {
-                    //     $_SESSION["id"] = $asiakas["id"];
-                    //     header("location: ../asukas.php?id=" . $asiakas['id']);
-                    //     exit;
-                    // } else {
-                    //     echo '<script>alert("Asiakasta ei löytynyt!");</script>';
-                    // }
 
                     if ($asiakas) {
                         $_SESSION["id"] = $asiakas["id"];
                         header("location: ../asukas.php");
                         exit;
                     } else {
-                        echo '<script>alert("Asiakasta ei löytynyt!");</script>';
+                        $_SESSION['error'] = "Asiakasta ei löytynyt.";
+                        header("location: ../kirjautumissivu.php");
+                        exit;
                     }
                     break;
                 case 2:
@@ -60,11 +56,12 @@ if (isset($_POST['submit'])) {
 
                     if ($isannoitsija) {
                         $_SESSION["id"] = $isannoitsija["id"];
-
-                    header("location: ../isannoitsija.php");
-                    exit;
+                        header("location: ../isannoitsija.php");
+                        exit;
                     } else {
-                        echo '<script>alert("Isännöitsijää ei löytynyt!");</script>';
+                        $_SESSION['error'] = "Isännöitsijää ei löytynyt.";
+                        header("location: ../kirjautumissivu.php");
+                        exit;
                     }
                     break;
                 case 3:
@@ -73,29 +70,26 @@ if (isset($_POST['submit'])) {
                     $query_tyontekija->execute([':sposti' => $user['sposti']]);
                     $tyontekija = $query_tyontekija->fetch(PDO::FETCH_ASSOC);
 
-                    // if ($tyontekija) {
-                    //     $_SESSION["id"] = $tyontekija["id"];
-                    //     header("location: ../tyontekija.php?id=" . $tyontekija['id']);
-                    //     exit;
-                    // } else {
-                    //     echo '<script>alert("Työntekijää ei löytynyt!");</script>';
-                    // }
-                    // break;
-
                     if ($tyontekija) {
                         $_SESSION["id"] = $tyontekija["id"];
                         header("location: ../tyontekija.php");
                         exit;
                     } else {
-                        echo '<script>alert("Työntekijää ei löytynyt!");</script>';
+                        $_SESSION['error'] = "Työntekijää ei löytynyt.";
+                        header("location: ../kirjautumissivu.php");
+                        exit;
                     }
                     break;
                 default:
-                    echo '<script>alert("Virheellinen rooli!");</script>';
+                    $_SESSION['error'] = "Virheellinen rooli.";
+                    header("location: ../kirjautumissivu.php");
+                    exit;
                     break;
             }
         } else {
-            echo '<script>alert("Käyttäjätunnus tai salasana on väärin!");</script>';
+            $_SESSION['error'] = "Käyttäjätunnus tai salasana on väärin.";
+            header("location: ../kirjautumissivu.php");
+            exit;
         }
     }
 }
