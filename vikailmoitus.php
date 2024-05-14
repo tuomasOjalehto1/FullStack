@@ -52,7 +52,7 @@ require_once 'header_kirjautunut.php'; ?>
                   </div>
                   <div class="col">
                       <label for="sposti" class="form-label"></label>
-                      <input type="text" class="form-control" id="sposti" placeholder="Sähköpostiosoite" name="sposti">
+                      <input type="text" class="form-control" id="sposti" placeholder="Sähköpostiosoite" name="sposti" required>
                   </div>
             </div>
                 
@@ -90,10 +90,24 @@ require_once 'header_kirjautunut.php'; ?>
             </div>
         </form>
 
-        <br>
-            <!-- Tänne oisi kiva saada se viesti koodissa, kuten myös Ota yhteyttä-sivulla -->
-            <?php if (!empty($message)) echo $message; ?>
-        <br>
+        <div class="container mt-3">
+            
+            
+            <?php 
+            if (isset($_SESSION['message'])) {
+                echo '<div class="alert alert-success">' . $_SESSION['message'] . '</div>';
+                unset($_SESSION['message']); // Poista viesti, jotta se ei näy uudestaan sivun uudelleenlatauksen yhteydessä
+            }
+            ?>
+            <?php 
+            if (isset($_SESSION['error'])) {
+                echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+                unset($_SESSION['error']); // Poista viesti, jotta se ei näy uudestaan sivun uudelleenlatauksen yhteydessä
+            }
+            ?>
+            
+            
+        </div>
               </div>
           </div>
     </div>

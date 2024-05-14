@@ -11,6 +11,7 @@ if(isset($_POST["talleta"])) {
         $sposti = $_POST['sposti'];
         $huoltotyyppi = $_POST['huoltotyyppi'];
         $kuvaus = $_POST['kuvaus'];
+        
 
         // Haetaan spostin perusteella data mitä ei ole lomakkeessa
         $sqlqueryAsiakasId = "SELECT id, osoite FROM asiakastaulu WHERE sposti = :sposti";
@@ -36,20 +37,23 @@ if(isset($_POST["talleta"])) {
             $insertStmt->bindValue(':asiakasId', $asiakasId, PDO::PARAM_INT);
 
             if ($insertStmt->execute()) {
-                echo "Vikailmoitus tallennettu onnistuneesti!";
+                session_start();
+                $_SESSION['message'] = "Vikailmoitus tallennettu onnistuneesti!";
+                header("Location: ../vikailmoitus.php");
+                exit();
             } else {
                 echo "Virhe tallennettaessa: " . $insertStmt->errorInfo()[2];
             }
-        } else {
-            echo "Asiakasta ei löytynyt annetulla sähköpostiosoitteella.";
-        }
-    } catch (PDOException $e) {
-        die("Database error: " . $e->getMessage());
-    }
-} else {
-    echo "Virhe: Lomaketta ei lähetetty oikein.";
-}
-
-//header("Location: ../vikailmoitus.php");
-exit();
+                    } else {
+                        session_start();
+                        $_SESSION['error'] = "Asiakasta ei löytynyt annetulla sähköpostiosoitteella.";
+                        header("Location: ../vikailmoitus.php");
+                        exit();
+                    }
+                } catch (PDOException $e) {
+                    die("Database error: " . $e->getMessage());
+                }
+            } else {
+                echo "Virhe: Lomaketta ei lähetetty oikein.";
+            }
 ?>

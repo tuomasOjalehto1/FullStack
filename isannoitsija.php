@@ -45,7 +45,7 @@ $results = haeTehtavat($yhteys);
                     <br>
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="vikailmoitus.php">Huoltopyyntö</a>
+                        <a class="nav-link active" href="vikailmoitus.php">Vikailmoituslomake</a>
                     </li>
                 </ul>
             </div>
