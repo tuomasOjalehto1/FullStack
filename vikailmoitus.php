@@ -22,18 +22,10 @@ require_once 'header_kirjautunut.php'; ?>
     <div class="container mt-5">
         <p>Lomakkeen kautta tehtyjä huoltopyyntöjä käsitellään arkisin toimistomme aukioloaikana. Mikäli asiasi vaatii välitöntä reagointia (esimerkiksi vesivahinko tai oven avauspyyntö) soita asiakaspalveluumme. </p>
         <br>    
-        <!-- <form action="/###.php" method="POST"> FORM 1 VALINTAMENU huoltotyypille-->
-          <!-- <label for="valintamenu" class="form-label"><h4>Valitse listalta vikailmoituksen tyyppi:</h4></label>
-            <select class="form-select" id="valintamenu" name="valintamenu">
-                <option>Kiinteistö</option>
-                <option>Yleiset tilat</option>
-                <option>Piha-alue</option> 
-            </select> -->
-        <!-- </form> -->
     </div>
     <div class="container mt-3">
       <h4>Ilmoituksen jättäjän tiedot:</h4>
-        <form action="Utils/tallennaVikailmoitus.php" method="POST"> <!--FORM 2 Ilmoituksen jättäjän tiedot-->
+        <form action="Utils/tallennaVikailmoitus.php" method="POST">
           
             <div class="row">
                   <div class="col">
@@ -52,7 +44,7 @@ require_once 'header_kirjautunut.php'; ?>
                   </div>
                   <div class="col">
                       <label for="sposti" class="form-label"></label>
-                      <input type="text" class="form-control" id="sposti" placeholder="Sähköpostiosoite" name="sposti">
+                      <input type="text" class="form-control" id="sposti" placeholder="Sähköpostiosoite" name="sposti" required>
                   </div>
             </div>
                 
@@ -90,10 +82,24 @@ require_once 'header_kirjautunut.php'; ?>
             </div>
         </form>
 
-        <br>
-            <!-- Tänne oisi kiva saada se viesti koodissa, kuten myös Ota yhteyttä-sivulla -->
-            <?php if (!empty($message)) echo $message; ?>
-        <br>
+        <div class="container mt-3">
+            
+            
+            <?php 
+            if (isset($_SESSION['message'])) {
+                echo '<div class="alert alert-success">' . $_SESSION['message'] . '</div>';
+                unset($_SESSION['message']); // Poista viesti, jotta se ei näy uudestaan sivun uudelleenlatauksen yhteydessä
+            }
+            ?>
+            <?php 
+            if (isset($_SESSION['error'])) {
+                echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+                unset($_SESSION['error']); // Poista viesti, jotta se ei näy uudestaan sivun uudelleenlatauksen yhteydessä
+            }
+            ?>
+            
+            
+        </div>
               </div>
           </div>
     </div>

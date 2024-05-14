@@ -1,8 +1,9 @@
 
 <?php
-
+    session_start();
       require_once 'header.php';
       require 'Utils/connect.php';
+
 ?>
 
 
@@ -37,13 +38,19 @@
                                 </div>
                             </div>
                             <button class="w-100 btn btn-lg btn-outline-secondary" type="submit" name="submit">Kirjaudu</button>
-                            <!--<h6 class="mt-3">Jos sinulla ei ole käyttäjätunnusta  <a href="register.php">Luo tunnus</a></h6>-->
                         </form>
                     </main>
                 </div>
             </div>
         </div>
     </div>
+    <!--virheilmoituksen paikka-->
+    <?php if(isset($_SESSION['error'])): ?>
+                        <div class="alert alert-danger col-6 mx-auto" role="alert">
+                            <?php echo $_SESSION['error']; ?>
+                        </div>
+    <?php unset($_SESSION['error']); ?> <!--Poista viesti, jotta se ei näy uudestaan sivun uudelleenlatauksen yhteydessä-->
+    <?php endif; ?>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

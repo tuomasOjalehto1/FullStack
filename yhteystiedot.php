@@ -1,6 +1,6 @@
-<!--Tässä header-->
-<?php session_start(); ?>
 
+<?php session_start(); ?>
+<!--Tässä header-->
 <?php
 // Tarkista, onko käyttäjä kirjautunut sisään
 if (isset($_SESSION['sposti'])) {
@@ -76,7 +76,6 @@ if (isset($_SESSION['sposti'])) {
     </div>
   </div>
 
-  <!-- Lisää muita sisältöjä tai osioita tarvittaessa -->
 
   <div class="row mt-5">
     <div class="col-sm-12 col-md-6">
@@ -101,5 +100,4 @@ if (isset($_SESSION['sposti'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
-<!-- Tähän se footer -->
 <?php require_once 'footer.php'; ?>

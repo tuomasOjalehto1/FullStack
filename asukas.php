@@ -42,7 +42,7 @@ session_start();
                 <h3 class="mt-4">Sähköinen lomake</h3> 
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="vikailmoitus.php">Huoltopyyntö</a>
+                        <a class="nav-link active" href="vikailmoitus.php">Vikailmoituslomake</a>
                     </li>
                 </ul>
             </div>

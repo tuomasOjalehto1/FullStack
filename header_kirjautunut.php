@@ -24,8 +24,7 @@
                                     <a class="nav-link" href="yhteystiedot.php">Yhteystiedot</a>
                                 </li>
                                 <?php
-                                    // Tässä osiossa voit tarkistaa käyttäjän roolin ja lisätä linkin "Omat sivut" vastaavasti
-                                    
+                                                                        
                                     if (isset($_SESSION['rooli'])) {
                                         switch ($_SESSION['rooli']) {
                                             case 1:
