@@ -77,12 +77,15 @@ $results = haeTehtavat($yhteys);
                 <td><?= htmlspecialchars($row['TehtavaID']) ?></td>
                 <td><?= htmlspecialchars($row['Kuvaus']) ?></td>
                 <td>
-                    <select name="tyontekija_id[<?= $row['TehtavaID'] ?>]" class='form-select'>
+                <form action="Utils/paivitaTyontekijaTehtavaan.php" method="post">
+                    <input type="hidden" name="tehtava_id" value="<?= $row['TehtavaID'] ?>">
+                    <select name="tyontekija_id" onchange="this.form.submit()" class='form-select'>
                         <option value="">Valitse työntekijä</option>
                         <?php foreach ($tyontekijat as $id => $nimi): ?>
                         <option value="<?= $id ?>" <?= $id == $row['tyontekija_id'] ? 'selected' : '' ?>><?= htmlspecialchars($nimi) ?></option>
                         <?php endforeach; ?>
                     </select>
+                </form>
                 </td>
                 <td>
                     <input type="checkbox" name="valmis[<?= $row['TehtavaID'] ?>]" value="1" <?= $row['valmis'] ? 'checked' : '' ?> class="tehtava-valmis-checkbox">
@@ -140,7 +143,7 @@ $results = haeTehtavat($yhteys);
             echo "<td class='d-none d-lg-table-cell'>" . htmlspecialchars($row["yritys"]) . "</td>";
             echo "<td>" . htmlspecialchars($row["sposti"]) . "</td>";
             echo "<td>";
-            echo "<button class='btn btn-dark btn-md' data-bs-toggle='modal' data-bs-target='#viewMessageModal" . $row['id'] . "' data-bs-backdrop='false'>Näytä viesti</button>";
+            echo "<button class='btn btn-outline-dark btn-md' data-bs-toggle='modal' data-bs-target='#viewMessageModal" . $row['id'] . "' data-bs-backdrop='false'>Näytä viesti</button>";
             echo "</td>";
             echo "<td class='d-none d-sm-table-cell'>" . $row["formatted_date"] . "</td>";
             echo "<td>";
