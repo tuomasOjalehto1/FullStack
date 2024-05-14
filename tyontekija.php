@@ -147,15 +147,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
     <button type="submit" class="btn btn-outline-success mt-3">Tallenna</button>
   </form>
 
-    <div class="col-sm-4">
-      <h3 class="mt-4">Lisää tehtävä sähköisellä lomakkeella</h3>
-      <br>
-        <ul class="nav nav-pills flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="vikailmoitus.php">Vikailmoituslomake</a>
-          </li>
-        </ul>
-    </div>
+
 
  <!-- Mahdollisuus lisätä tehtävä -->
 
@@ -171,7 +163,9 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
   </div>
 </div>
 
+
   <!--Työntekijä näkee kaikki huoltotehtävät -->
+  
   <div class="container mt-5">
     <h2>Kaikki huoltotehtävät</h2>
     <table class="table table-striped">
