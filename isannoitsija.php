@@ -25,7 +25,7 @@ $results = haeTehtavat($yhteys);
 <body>
 
     <div class="p-5 text-dark text-center"> <!--isännöitsijä sivun header -->
-        <h1>Isännöitsijä</h1>
+        <h1>Isännöitsijän sivu</h1>
     </div>
     <div class="container mt-5">
         <div class="row g-3">
