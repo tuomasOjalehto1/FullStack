@@ -194,7 +194,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
                 <td><?= htmlspecialchars($row['TehtavaID']) ?></td>
                 <td><?= htmlspecialchars($row['Kuvaus']) ?></td>
                 <td>
-                <form action="Utils/paivitaTyontekijaTehtavaan.php" method="post">
+                <form action="Utils/paivitaTyontekijaTehtavaanTyontekijaSivu.php" method="post">
                     <input type="hidden" name="tehtava_id" value="<?= $row['TehtavaID'] ?>">
                     <select name="tyontekija_id" onchange="this.form.submit()" class='form-select'>
                         <option value="">Valitse työntekijä</option>
