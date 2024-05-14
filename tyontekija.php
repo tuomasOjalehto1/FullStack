@@ -31,7 +31,7 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
 
   <!-- Näytä tiedot taulukkomuodossa -->
   <div class="container mt-5">
-    <h2>Kaikki tehtävät</h2>
+    <h2>Kaikki omat tehtävät</h2>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -160,6 +160,48 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
         </ul>
     </div>
 
+</div>
+
+
+<!--Työntekijä pystyy ottamaan tehtävän itselleen -->
+
+<div class="container mt-5">
+    <h2>Kaikki huoltotehtävät</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ilmoittajan nimi</th>
+                <th>Osoite</th>
+                <th>Huoltotyyppi</th>
+                <th>Tehtävän id</th>
+                <th>Kuvaus</th>
+                <th>Työntekijä</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($results as $row): ?>
+            <tr>
+                <td><?= htmlspecialchars($row['IlmoittajanEtunimi'] . ' ' . $row['IlmoittajanSukunimi']) ?></td>
+                <td><?= htmlspecialchars($row['Osoite']) ?></td>
+                <td><?= htmlspecialchars($row['Huoltotyyppi']) ?></td>
+                <td><?= htmlspecialchars($row['TehtavaID']) ?></td>
+                <td><?= htmlspecialchars($row['Kuvaus']) ?></td>
+                <td>
+                <form action="Utils/paivitaTyontekijaTehtavaanTyontekijaSivu.php" method="post">
+                    <input type="hidden" name="tehtava_id" value="<?= $row['TehtavaID'] ?>">
+                    <select name="tyontekija_id" onchange="this.form.submit()" class='form-select'>
+                        <option value="">Valitse työntekijä</option>
+                        <?php foreach ($tyontekijat as $id => $nimi): ?>
+                        <option value="<?= $id ?>" <?= $id == $row['tyontekija_id'] ? 'selected' : '' ?>><?= htmlspecialchars($nimi) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </form>
+                </td>
+
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </div>
 
 
