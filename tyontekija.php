@@ -146,8 +146,18 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
     </div>
     <button type="submit" class="btn btn-outline-success mt-3">Tallenna</button>
   </form>
-</div>
 
+    <div class="col-sm-4">
+      <h3 class="mt-4">Lisää tehtävä sähköisellä lomakkeella</h3>
+      <br>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="vikailmoitus.php">Vikailmoituslomake</a>
+          </li>
+        </ul>
+    </div>
+
+</div>
 
 
   <!-- Footer -->
