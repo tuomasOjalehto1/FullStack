@@ -148,61 +148,18 @@ $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
   </form>
 
 
-
- <!-- Mahdollisuus lisätä tehtävä -->
+     <!--Työntekijä pystyy lisäämään tehtävän -->
 
     <div class="col-sm-4">
       <h3 class="mt-4">Lisää tehtävä sähköisellä lomakkeella</h3>
       <br>
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="vikailmoitus.php">Vikailmoituslomake</a>
-        </li>
-      </ul>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="vikailmoitus.php">Vikailmoituslomake</a>
+          </li>
+        </ul>
     </div>
-  </div>
-</div>
 
-
-  <!--Työntekijä näkee kaikki huoltotehtävät -->
-  
-  <div class="container mt-5">
-    <h2>Kaikki huoltotehtävät</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Ilmoittajan nimi</th>
-                <th>Osoite</th>
-                <th>Huoltotyyppi</th>
-                <th>Tehtävän id</th>
-                <th>Kuvaus</th>
-                <th>Työntekijä</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($results as $row): ?>
-            <tr>
-                <td><?= htmlspecialchars($row['IlmoittajanEtunimi'] . ' ' . $row['IlmoittajanSukunimi']) ?></td>
-                <td><?= htmlspecialchars($row['Osoite']) ?></td>
-                <td><?= htmlspecialchars($row['Huoltotyyppi']) ?></td>
-                <td><?= htmlspecialchars($row['TehtavaID']) ?></td>
-                <td><?= htmlspecialchars($row['Kuvaus']) ?></td>
-                <td>
-                <form action="Utils/paivitaTyontekijaTehtavaanTyontekijaSivu.php" method="post">
-                    <input type="hidden" name="tehtava_id" value="<?= $row['TehtavaID'] ?>">
-                    <select name="tyontekija_id" onchange="this.form.submit()" class='form-select'>
-                        <option value="">Valitse työntekijä</option>
-                        <?php foreach ($tyontekijat as $id => $nimi): ?>
-                        <option value="<?= $id ?>" <?= $id == $row['tyontekija_id'] ? 'selected' : '' ?>><?= htmlspecialchars($nimi) ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </form>
-                </td>
-
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
 </div>
 
 
