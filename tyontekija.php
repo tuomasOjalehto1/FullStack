@@ -124,7 +124,7 @@ $results = haeTehtavat($yhteys);
         
     
   <div class="container mt-3">
-  <h3 class="mb-4">Tallenna tehtävien tilat</h3>
+  <h3 class="mb-4">Tallenna tehtävien muutokset</h3>
     <form id="tehtavatForm" method="post" action="Utils/TallennaTehtavanTila.php">
       <button type="button" id="lahetaTehtavat" class="btn btn-outline-primary mt-3">Tallenna muutokset</button>
     </form>
