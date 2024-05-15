@@ -20,7 +20,7 @@ require_once 'Utils/connect.php';
 <div class="container mt-5">
     <div class="row">
         <div class="col">
-            <h2 class="mb-3">Referenssimme</h2>
+            <h2 class="mt-4 text-center">Referenssimme</h2>
             <div class="row">
 
                 <div class="col-md-4">
@@ -70,6 +70,7 @@ require_once 'Utils/connect.php';
         </div>
     </div>
 </div>
+<br>
 </body>
 
   <!-- Footer -->
