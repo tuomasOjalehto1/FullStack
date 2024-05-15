@@ -60,7 +60,7 @@ require_once 'Utils/connect.php';
                                 <b>R. Autio Oy suoritti kattavan kylpyhuoneen kalusteiden asennuksen osana laajempaa remonttia Espoossa.</b><br><br>
                                     Varmistimme, että kaikki asennukset tehtiin huolellisesti ja ammattimaisesti, mikä takasi sekä esteettisen että toiminnallisen lopputuloksen. Erityistä huomiota kiinnitettiin vesieristykseen ja kalusteiden sijoitteluun, jotta saavutettaisiin sekä käytännöllinen että visuaalisesti miellyttävä kokonaisuus.
                                 <br><br>
-                                <b>Asiakkaan palaute</b>
+                                <b>Asiakkaan palaute:</b>
                                 "Uudistettu kylpyhuoneemme on nyt sekä toiminnallinen että visuaalisesti houkutteleva. R. Autio Oy:n asentamat kalusteet ovat laadukkaita ja asennustyö oli ensiluokkaista. Erityisesti arvostimme ammattimaista otetta ja kykyä toteuttaa juuri toiveidemme mukainen lopputulos. Olemme erittäin tyytyväisiä ja suosittelemme heitä kaikille kylpyhuoneremonttia suunnitteleville."
                             </p>
                         </div>
