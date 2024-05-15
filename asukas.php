@@ -91,6 +91,7 @@ session_start();
         </div>
     </div>
 </body>
+<br>
 </html>
 <?php require_once 'footer.php'; ?>
 

@@ -54,6 +54,7 @@ $results = haeTehtavat($yhteys);
 
     <!--Huoltotehtävät -->
     <div class="container mt-5">
+    <div class="table-responsive">
     <h2>Huoltotehtävä -lista</h2>
     <table class="table table-striped">
         <thead>
@@ -101,6 +102,7 @@ $results = haeTehtavat($yhteys);
         </tbody>
     </table>
     <button id="tallennaMuutoksetNappi" class="btn btn-outline-primary mt-3">Tallenna muutokset</button>
+</div>
 </div>
 
 

@@ -38,6 +38,7 @@ $results = haeTehtavat($yhteys);
 
   <!-- Näytä tiedot taulukkomuodossa -->
   <div class="container mt-5">
+  <div class="table-responsive">
     <h2>Kaikki omat tehtävät</h2>
     <table class="table table-striped">
       <thead>
@@ -119,6 +120,7 @@ $results = haeTehtavat($yhteys);
       </tbody>
     </table>
   </div>
+  </div>
         
     
   <div class="container mt-3">
@@ -178,6 +180,7 @@ $results = haeTehtavat($yhteys);
 <!--Työntekijä pystyy ottamaan tehtävän itselleen -->
 
 <div class="container mt-5">
+<div class="table-responsive">
     <h2>Kaikki huoltotehtävät</h2>
     <table class="table table-striped">
         <thead>
@@ -214,6 +217,7 @@ $results = haeTehtavat($yhteys);
             <?php endforeach; ?>
         </tbody>
     </table>
+</div>
 </div>
 
 
