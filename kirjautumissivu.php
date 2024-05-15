@@ -20,7 +20,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col">
-            <h2 class="mb-3 text-center">Kirjaudu</h2>
+            <h2 class="mt-4 text-center">Kirjaudu</h2>
             <div class="container mt-5">
                 <div class="row justify-content-center">
                     <main class="form-signin w-50 m-auto">

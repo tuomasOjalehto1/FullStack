@@ -26,9 +26,11 @@ if (isset($_SESSION['sposti'])) {
 
 
 <div class="container mt-5">
-  <div class="row text-center" id="yritysnimi">
-    <h2>Yhteystiedot - R. Autio Oy</h2>
-  </div>
+    <div class="row">
+        <div class="col">
+            <h2 class="mt-4 text-center">Yhteystiedot</h2>
+        </div>
+    </div>
   <div class="row">
     <div class="col-sm-12 col-md-12">
       <p>
@@ -98,5 +100,6 @@ if (isset($_SESSION['sposti'])) {
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+<br>
 </html>
 <?php require_once 'footer.php'; ?>
