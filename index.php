@@ -76,7 +76,7 @@ if (isset($_SESSION['sposti'])) {
                 </div>
             </div>
         </div>
-    </div>
+
 
             <div id="kommentti" class="row">
                 <div class="col-sm-12 col-md-12 col-xl-12">
