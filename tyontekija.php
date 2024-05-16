@@ -9,7 +9,7 @@ require_once 'Utils/haeTehtavat.php';
 require_once 'Utils/haeTyontekijat.php'; 
 require_once 'Utils/paivitaTyontekijaTehtavaanTyontekijaSivu.php';
 
-// Hae kaikki tiedot joihin tallennettu tämän työntekijän id tehtavataulu-taulusta
+// Hakee kaikki tiedot joihin tallennettu tämän työntekijän id tehtavataulu-taulusta
 $sql = "SELECT * FROM tehtavataulu WHERE tyontekija_id = :tyontekija_id";
 $stmt = $yhteys->prepare($sql);
 $stmt->execute([':tyontekija_id' => $_SESSION["id"]]);
@@ -36,7 +36,7 @@ $results = haeTehtavat($yhteys);
 </head>
 <body>
 
-  <!-- Näytä tiedot taulukkomuodossa -->
+  <!-- Näyttää tiedot taulukkomuodossa -->
   <div class="container mt-5">
   <div class="table-responsive">
     <h2>Kaikki omat tehtävät</h2>
